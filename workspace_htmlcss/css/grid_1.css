@@ -1,0 +1,36 @@
+.container{
+  width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  border: 5px solid black;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  /* gap : 간격을 나눌때 사용  */
+  gap: 20px 10px;
+}
+
+
+.container > div{
+  border: 1px solid red;
+}
+
+/* 
+grid에서 병합을 할 때, 선을 기준으로 첫번째 선을 기준으로 한다.
+ */
+.container > div:first-child{
+  /* 
+  grid-column-start: 1;
+  grid-column-end: 3;
+  */
+  /* 
+  start,end를 한번에 축약한것
+  grid-column: 1 / 3;
+  */
+
+}
+
+/* .container > div:nth-child(2){
+  grid-row-start: 1;
+  grid-row-end: 3;
+} */

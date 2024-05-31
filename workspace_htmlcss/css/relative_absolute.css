@@ -1,0 +1,26 @@
+.img-div{
+  background-color: lightgray;
+  position: relative;
+}
+
+.img-div img{
+  border: 2px solid orange;
+  border-radius: 50%;
+  position: absolute;
+
+}
+/* z-index는 숫자가 높을수록 위로 올라온다 */
+.img-div img:nth-child(1){
+  left: 0px;
+  z-index: 3;
+  
+}
+
+.img-div img:nth-child(2){
+  left: 100px;
+  z-index: 2;
+}
+.img-div img:nth-child(3){
+  left: 200px;
+  z-index: 1;
+}

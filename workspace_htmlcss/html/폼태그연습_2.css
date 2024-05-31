@@ -1,0 +1,29 @@
+table{
+  margin: auto;
+  width: 900px;
+}
+
+.sp1{
+  color: red;
+  font-size: smaller;
+}
+
+.td1{
+  text-align: center;
+  background-color: blanchedalmond;
+}
+
+/* table에서는 tbody를 작성하지 않으면 인터넷(개발자모드)에서 tbody가 작성된다.
+*/
+table > tbody > tr > td:first-child{
+  text-align: center;
+}
+
+.btn-div{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.red-font{
+  color: red;
+}

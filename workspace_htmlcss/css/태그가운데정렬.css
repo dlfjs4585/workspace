@@ -1,0 +1,25 @@
+.d1{
+  border: 1px solid black;
+  margin: 0px auto;
+  width: 300px;
+}
+
+table, tr, td{
+  border: 1px solid black;
+}
+
+table{
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 16px;
+  width: 100px;
+}
+
+button{
+  width: 100px;
+  margin-top: 10px;
+}
+
+.d2{
+  text-align: center;
+}

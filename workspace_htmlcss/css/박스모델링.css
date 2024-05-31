@@ -1,0 +1,40 @@
+/* 태그의 너비는 기본적으로 
+   width + border + padding의 합
+*/
+
+
+.p1{
+  /* 테두리 */
+  border: 3px solid black;
+  /* 바깥 여백 */
+  margin: 20px;
+  /* 안쪽 여백 */
+  padding: 20px;
+}
+
+.p2{
+  border: 3px solid red;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.p3{
+  border: 3px dotted yellowgreen;
+  /* 12시를 기준으로 시계방향 */
+  padding: 5px 10px 15px 20px;
+  /* 상하 좌우 */
+  margin: 50px 20px;
+}
+
+.p4{
+  border: 1px solid black;
+  /* 너비 */
+  width: 250px;
+  /* 높이 */
+  height: 50px;
+}
+
+.a1{
+  border: 1px solid black;
+  margin: 50px 50px;
+}

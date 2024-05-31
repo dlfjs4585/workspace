@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="텝메뉴.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="tab-btn">
+      <a href="#tab1" class="show">
+        <i class="bi bi-1-circle-fill"></i>Item 1
+      </a>
+      <a href="#tab2"><i class="bi bi-2-circle-fill"></i>
+        Item 2
+      </a>
+      <a href="#tab3"><i class="bi bi-3-circle-fill"></i>
+        Item 3
+      </a>
+      <a href="#tab4"><i class="bi bi-4-circle-fill"></i>
+        Item 4
+      </a>
+    </div>
+    <div class="tab-content">
+      <div class="tab-item" id="tab1">
+        <h2>ITEM 1</h2>
+        <p>
+          모든 국민은 양심의 자유를 가진다. 국가는 전통문화의 계승·발전과 민족문화의 창달에 노력하여야 한다. 대통령이 제1항의 기간내에 공포나 재의의 요구를 하지 아니한 때에도 그 법률안은 법률로서 확정된다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에 의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+        </p>
+      </div>
+      <div class="tab-item" id="tab2">
+        <h2>ITEM 2</h2>
+        <p>
+          대통령은 국회에 출석하여 발언하거나 서한으로 의견을 표시할 수 있다. 이 헌법시행 당시에 이 헌법에 의하여 새로 설치될 기관의 권한에 속하는 직무를 행하고 있는 기관은 이 헌법에 의하여 새로운 기관이 설치될 때까지 존속하며 그 직무를 행한다. 헌법재판소 재판관은 정당에 가입하거나 정치에 관여할 수 없다.
+        </p>
+      </div>
+      <div class="tab-item" id="tab3">
+        <h2>ITEM 3</h2>
+        <p>
+          법률이 정하는 주요방위산업체에 종사하는 근로자의 단체행동권은 법률이 정하는 바에 의하여 이를 제한하거나 인정하지 아니할 수 있다. 국가의 세입·세출의 결산, 국가 및 법률이 정한 단체의 회계검사와 행정기관 및 공무원의 직무에 관한 감찰을 하기 위하여 대통령 소속하에 감사원을 둔다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.
+        </p>
+      </div>
+      <div class="tab-item" id="tab4">
+        <h2>ITEM 4</h2>
+        <p>
+          국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다. 감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한 사항은 법률로 정한다. 국회는 의원의 자격을 심사하며, 의원을 징계할 수 있다.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a').forEach((element, i) => {
+      element.addEventListener('click', (e) => {
+        document.querySelectorAll('a').forEach((a_tag, idx) => {
+          a_tag.classList.remove('show');
+        });
+        e.target.classList.add('show');
+
+      });
+    });
+  </script>
+
+</body>
+</html>

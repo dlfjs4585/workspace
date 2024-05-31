@@ -1,0 +1,42 @@
+body{
+  background-color: lightskyblue;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact{
+  width: 500px;
+  height: 170px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 0.5s;
+}
+
+img{
+  width: 150px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}
+
+.name{
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 1.5rem;
+}
+
+.email{
+  font-size: 1.3rem;
+  color: gray;
+}
+
+.contact:hover{
+  scale: 1.1;
+}

@@ -1,0 +1,22 @@
+.container{
+  width: 700px;
+  border: 3px solid black;
+  margin: auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+p{
+  /* font-size: 24px; */
+  /* line-height: 50px; */
+  margin-top: 0px;
+  text-align: justify;
+}
+
+
+/* float는 부모태그의 높이를 
+잃어버림 그럴때 이미지가 밖으로 나가게 된다면 부모태그에 overflow: hidden을 사용하면 된다.
+*/
+img{
+  float: right;
+}

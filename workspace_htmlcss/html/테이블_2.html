@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      border: 1px solid black;
+      width: 400px;
+      text-align: center;
+
+    }
+    tr, td{
+      border: 1px solid black;
+      
+    }
+   </style>
+</head>
+<body>
+  <!-- 
+    table 태그 안에는 thead, tbody, tfoot, tr, caption, colgroup 태그만 올 수 있다.
+   -->
+  <table>
+    <colgroup>
+      <col width="50%">
+      <col width="20%">
+      <col width="*">
+    </colgroup>
+    <caption>학생정보</caption>
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>점수</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>김길동</td>
+        <td>20</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>80</td>
+        <td>70</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>평균</td>
+        <td>55</td>
+        <td>75</td>
+      </tr>
+    </tfoot>
+
+  </table>
+</body>
+</html>

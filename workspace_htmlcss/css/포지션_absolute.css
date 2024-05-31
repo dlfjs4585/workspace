@@ -1,0 +1,28 @@
+body{
+  margin: 0;
+}
+
+
+
+div{
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+
+}
+
+.d1{
+  background-color: aqua;
+ 
+}
+.d2{
+  background-color: aquamarine;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+/* .d3{
+  background-color: blue;
+} */

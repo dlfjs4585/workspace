@@ -1,0 +1,30 @@
+.main{
+  margin: auto;
+}
+
+
+
+tr > td:first-child{
+  background-color: aliceblue;
+  width: 130px;
+  
+  padding: 15px;
+}
+
+.red-font{
+  color: red;
+}
+
+.adr{
+  width: 70px;
+}
+
+td > select{
+  width: 60px;
+}
+
+.num{
+  width: 60px;
+}
+
+

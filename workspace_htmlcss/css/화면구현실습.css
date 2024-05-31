@@ -1,0 +1,45 @@
+body{
+  margin: auto;
+  width: 1500px;
+}
+ul{
+  list-style-type: none;
+  
+}
+
+ul > li{
+  display: inline-block;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.div1{
+  text-align: center;
+}
+
+.div2{
+  width: 100%;
+  background-image: url(./화면구현_메인배경.PNG);
+  height: 873px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+.div0{
+  display: inline-block;
+  background-color: black;
+  width: 100%;
+  height: 70px;
+}
+
+.ul1{
+  display: inline-block;
+  width: 45%;
+  color: white;
+  font-size: larger;
+}
+.ul3{
+  width: 45%;
+  display: inline-block;
+  color: white;
+}

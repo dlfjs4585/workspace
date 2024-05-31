@@ -1,0 +1,58 @@
+body{
+  background-color: lightblue;
+}
+
+.container{
+  width: 700px;
+  margin: 50px auto;
+}
+
+.tab-btn{
+  display: flex;
+  /* justify-content: center; */
+  gap: 1px;
+}
+
+.tab-btn a{
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 150px;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all .5s;
+  border-top: 2px solid black;
+}
+
+.tab-content{
+  position: relative;
+}
+
+
+
+.tab-item{
+  position: absolute;
+  /* display: none; */
+  opacity: 0;
+  visibility: hidden;
+  background-color: white;
+  padding: 20px;
+  transition: all 1s;
+}
+
+.tab-btn a:hover{
+  color: aqua;
+}
+
+.tab-item:target{
+  /* display: block; */
+  opacity: 1;
+  visibility: visible;
+}
+
+a.show{
+  background-color: white;
+  color: black;
+  border-top: 2px solid black;
+}

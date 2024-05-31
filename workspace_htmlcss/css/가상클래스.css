@@ -1,0 +1,83 @@
+.container1{
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.container1 > div{
+  width: 80px;
+  height: 80px;
+  background-color: brown;
+  border: 1px solid black;
+  color: white;
+  font-size: 2rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 변환 : 전체 n초 동안 */
+  transition: all 1s;
+}
+
+/* hover : 선택자의 마우스를 올리면 작동 */
+.d1:hover{
+  width: 120px;
+  height: 120px;
+  
+}
+
+.d2:hover{
+  background-color: blue;
+  color: yellow;
+}
+
+.d3:hover{
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+/* -------------------- */
+
+/* 
+input태그에서는 통상적으로 padding을 사용 
+*/
+input{
+  margin-left: 30px;
+  width: 200px;
+  padding: 10px 4px;
+  border-radius: 8px;
+  border: 1px solid red;
+  outline: none;
+  transition: all 1s;
+}
+/* input, button을 클릭하면 작동 */
+input:focus{
+  width: 300px;
+  border: 1.5px solid green;
+}
+
+/* --------------------- */
+
+ul{
+  margin-left: 30px;
+}
+
+/* before : 선택자 앞에 인라인 요소 추가*/
+.li-1:before{
+  content: "new";
+  color: white;
+  background-color: blue;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 5px;
+}
+/* after : 선택자 뒤에 인라인 요소 추가 */
+.li-1:after{
+  content: "css";
+
+}
+
+/* scale1:1 <- 원래 크기에 비해 1.1배 커진다 */

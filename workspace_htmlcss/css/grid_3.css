@@ -1,0 +1,28 @@
+.container{
+  width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  border: 5px solid black;
+
+  display: grid;
+  grid-template-columns: repeat(3, 100px) ;
+  grid-template-rows: repeat(2,100px);
+
+  align-content: center;
+  justify-content: center;
+
+
+  justify-items: center;
+  align-items: center;
+}
+
+
+
+.container > div{
+  border: 1px solid red;
+}
+
+.container > div:last-child{
+  justify-self: stretch;
+  align-self: stretch;
+}

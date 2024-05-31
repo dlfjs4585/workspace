@@ -1,0 +1,61 @@
+.container{
+  background-color: white;
+
+
+}
+
+
+.head{
+  text-align: center;
+}
+
+
+.img{
+  width: 100%;
+  margin: auto;
+  display: grid;
+  border: 1px solid black;
+  gap: 5px;
+  grid-template-areas:
+  "a b c d"
+  "e f g h";
+  
+}
+
+img{
+  width: 192px;
+}
+
+.img > img:hover{
+  background-color: aliceblue;
+}
+
+
+
+img:nth-child(1){
+  grid-area: a;
+}
+img:nth-child(2){
+  grid-area: b;
+}
+img:nth-child(3){
+  grid-area: c;
+}
+img:nth-child(4){
+  grid-area: d;
+}
+img:nth-child(5){
+  grid-area: e;
+}
+img:nth-child(6){
+  grid-area: f;
+}
+img:nth-child(7){
+  grid-area: g;
+}
+img:nth-child(8){
+  grid-area: h;
+}
+
+
+
