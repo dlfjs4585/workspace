@@ -1,15 +1,14 @@
-package 다섯_반복문.While;
+package 다섯_반복문.For;
 
 public class Test7 {
     public static void main(String[] args) {
-        int i = 1;
         int cnt = 0;
-        while (i < 101){
+
+        for (int i = 1; i < 101; i++){
             if (i % 5 == 0){
                 System.out.println(i);
                 cnt++;
             }
-            i++;
         }
         System.out.println(cnt);
     }

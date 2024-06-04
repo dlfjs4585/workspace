@@ -1,15 +1,13 @@
-package 다섯_반복문.While;
+package 여섯_배열;
 
 public class Test7 {
     public static void main(String[] args) {
-        int i = 1;
+        int arr1[] = {1,2,3,4,5,6,7,8,9,10,11,12};
         int cnt = 0;
-        while (i < 101){
-            if (i % 5 == 0){
-                System.out.println(i);
+        for (int i = 0; i < arr1.length; i++){
+            if (arr1[i] % 2 == 0){
                 cnt++;
             }
-            i++;
         }
         System.out.println(cnt);
     }
