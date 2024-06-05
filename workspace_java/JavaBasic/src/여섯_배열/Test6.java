@@ -6,16 +6,20 @@ import java.util.Scanner;
 public class Test6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("값을 입력하시오 : ");
         int arr1[] = new int[5];
 
         for (int i = 0; i < arr1.length; i++){
+            System.out.print(i + "번째 요소 입력 : ");
+            arr1[i] = sc.nextInt();
 
-            int num1 = sc.nextInt();
-            arr1[i] = num1;
         }
-        System.out.println(Arrays.toString(arr1));
-
+        System.out.println("-배열에 저장된 요소-");
+        for (int i = 0; i < arr1.length; i++){
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println();
+        for (int e : arr1){
+            System.out.println(e);
+        }
     }
 }
