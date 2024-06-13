@@ -7,7 +7,7 @@ public interface StudentUtil {
 
     //--첫번째 메서드 --
     //메서드명 : getGradeByStudentName
-    String getGradeByStudentName(int stu1,String name);
+    String getGradeByStudentName(int stu1,String[] name);
     //첫번째 매개변수로 받은 다수의 학생 중
     //두번째 매개변수로 받은 이름을 가진 학생의 점수등급을 리턴.
     //단, 전달받은 이름을 가진 학생이 없다면 점수 등급은 "등급없음"이 된다.
