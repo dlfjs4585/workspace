@@ -41,7 +41,7 @@ class TestStudent{
         System.out.println();
 
         for (int i = 0; i < stu.size(); i++){
-            if (stu.get(i).totalScores >= 150){
+            if (stu.get(i).getTotalScores() >= 150){
                 System.out.println(stu.get(i));
             }
         }
@@ -49,7 +49,7 @@ class TestStudent{
         System.out.println();
 
         for (int i = 0; i < stu.size(); i++){
-            double avg = stu.get(i).totalScores/2;
+            double avg = stu.get(i).totalScores/2.0;
             System.out.println(avg);
         }
 
@@ -76,6 +76,18 @@ class TestStudent{
             System.out.println(stu.get(2).totalScores);
         }
 
+        System.out.println();
+
+        //4. 총점 1등인 학생 모든 정보 출력
+        int index =0; // 총점이 1등인 학생의 index
+        int max = 0; // 가장 높은 총점
+        for (int i = 0; i < stu.size(); i++){
+            if (max < stu.get(i).getTotalScores()){
+                max = stu.get(i).getTotalScores();
+                index = i;
+            }
+        }
+        System.out.println(stu.get(index));
 
     }
 }
