@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Test2_1 {
     public static void main(String[] args) {
 
+<<<<<<< Updated upstream
         EmpService empService = new EmpService();
 
         //empService.login();
@@ -16,7 +17,11 @@ public class Test2_1 {
         empService.increaseMoney();
 
     }
-}
+=======
+    }
+
+>>>>>>> Stashed changes
+
 
 class EmpService{
     private List<worker> work;

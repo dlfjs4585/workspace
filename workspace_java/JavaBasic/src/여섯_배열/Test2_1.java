@@ -1,6 +1,6 @@
 package 여섯_배열;
 
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 
 public class Test2_1 {
