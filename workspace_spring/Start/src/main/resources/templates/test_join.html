@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- member.name의 member는 for-each문의 member와 같다 -->
+  <div th:each="member : ${memberList}">[[${member.name}]]</div>
+  <th:block th:each=" m : ${memberList} ">
+    [[${m.age}]]
+  </th:block>
+
+  <table border="1">
+    <tr>
+      <td>이름</td>
+      <td>나이</td>
+      <td>점수</td>
+    </tr>
+    <tr th:each="member : ${memberList}">
+      <td>
+        [[${member.name}]]
+      </td>
+      <td>
+        [[${member.age}]]
+      </td>
+      <td>
+        [[${member.score}]] 
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    이름 <input type="text">
+  </div>
+  <div>
+    연락처 <input type="text">
+  </div>
+  <div>
+    성별
+    <input type="radio" checked> 남
+    <input type="radio"> 여
+  </div>
+  <div>
+    <input type="checkbox"> 독서
+    <input type="checkbox"> 게임
+    <input type="checkbox"> 운동
+  </div>
+  <div>
+    가입경로 
+    <select>
+      <option value="">1.인터넷</option>
+      <option value="">2.지인추천</option>
+      <option value="">3.신문</option>
+    </select>
+  </div>
+  <div>
+    <input type="button" value="회원가입">
+    <a href="m1">
+      <input type="button" value="뒤로가기">
+    </a>
+  </div>
+</body>
+</html>
