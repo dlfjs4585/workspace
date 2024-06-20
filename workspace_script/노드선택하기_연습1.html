@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="num1"> +
+  <input type="text" id="num2">
+  <input type="button" value="더하기" onclick="plusValue()"> <br>
+  <input type="text" id="result">
+
+  <script>
+    
+    function plusValue() {
+      //첫번째 input태그에 접근한다.
+      const a = document.querySelector('#num1');
+      //접근한 input태그에 작성한 내용을 가져온다.
+      const num1 = a.value;
+      //한번에 접근하는 방법
+      const num2 = document.querySelector('#num2').value;
+      const sum = Number (num1) + Number (num2);
+      const c =document.querySelector('#result');
+
+      c.value=sum;
+    }
+
+  </script>
+</body>
+</html>
