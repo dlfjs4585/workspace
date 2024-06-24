@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="/stu_list.css">
+</head>
+<body>
+  <div class="container">
+    <div class="list-div">
+      <table class="list-table">
+        <colgroup>
+          <col width="10%">
+          <col width="*">
+          <col width="15%">
+          <col width="15%">
+          <col width="10%">
+          <thead>
+            <tr>
+              <td>학번</td>
+              <td>학생명</td>
+              <td>국어점수</td>
+              <td>영어점수</td>
+              <td>총점</td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 등록된 학생이 없을 때 -->
+            <th:block th:if="${#lists.isEmpty(stuVOList)}">
+              <tr>
+                <td colspan="5">
+                  등록된 학생이 없습니다.
+                </td>
+              </tr>
+            </th:block>
+            <!-- 등록된 학생이 있을 때 -->
+            <th:block th:unless="${#lists.isEmpty(stuVOList)}">
+              <tr th:each="stu : ${stuVOList}">
+                <td>
+                  [[${stu.stuNum}]]
+                </td>
+                <td>
+                  <a th:href="@{/stuDetail(stuNum=${stu.stuNum})}">
+                    [[${stu.stuName}]]
+                  </a>
+                </td>
+                <td>
+                  [[${stu.korScore}]]
+                </td>
+                <td>
+                  [[${stu.engScore}]]
+                </td>
+                <td>
+                  [[${stu.korScore + stu.engScore}]]
+                </td>
+              </tr>
+            </th:block>
+          </tbody>
+        </colgroup>
+      </table>
+    </div>
+    <div class="btn-div">
+      <input type="button" value="학생등록" onclick="goRegForm()">
+    </div>
+  </div>
+  <script>
+    //학생등록 버튼 클릭시 학생등록
+    //페이지로 이동하는 함수 생성
+    function goRegForm() {
+      location.href = "/stuWriteForm";
+    }
+  </script>
+</body>
+</html>

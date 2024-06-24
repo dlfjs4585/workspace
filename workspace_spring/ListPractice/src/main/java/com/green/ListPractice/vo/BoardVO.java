@@ -1,9 +1,6 @@
 package com.green.ListPractice.vo;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 //VO : Value Object
 //DTO (BoardDTO) : Data Transfer Object

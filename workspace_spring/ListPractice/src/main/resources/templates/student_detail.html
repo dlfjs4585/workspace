@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>학번</td>
+      <td> [[${stu.stuNum}]] </td>
+      <td>이름</td>
+      <td> [[${stu.stuName}]] </td>
+    </tr>
+    <tr>
+      <td>국어점수</td>
+      <td> [[${stu.korScore}]] </td>
+      <td>영어점수</td>
+      <td> [[${stu.engScore}]] </td>
+    </tr>
+    <tr>
+      <td>자기소개</td>
+      <td> [[${stu.stuIntroduce}]] </td>
+    </tr>
+  </table>
+  <input type="button" value="뒤로가기" onclick="goBack()">
+  <input type="button" value="학생수정" th:onclick="goUpdateForm([[${stu.stuNum}]])">
+  <button type="button" th:onclick="goDelete([[${stu.stuNum}]])">학생삭제</button>
+  <script>
+    //뒤로가기 버튼 클릭 시 실행 함수
+    function goBack() {
+      //뒤로가기
+      //history.back(-1);
+      //주소로 이동(새롭게 추가된 데이터도 표시됨)
+      location.href= '/stuList';
+    }
+
+    //학생 삭제 클릭 시 실행 함수
+    function goDelete(stuNum) {
+      const result = confirm('삭제하시겠습니까?')
+      if(result){
+        location.href=`/stuDelete?stuNum=${stuNum}`;// 'studelete?stuNum=123', `` <- 사용하면 변수를 사용할 수 있음
+      }
+      
+    }
+
+    //학생 수정버튼 클릭 -> 학생정보를 수정할 수 있는 페이지로 이동
+    function goUpdateForm(stuNum) {
+      location.href=`/updateForm?stuNum=${stuNum}`;
+    }
+  </script>
+</body>
+</html>
