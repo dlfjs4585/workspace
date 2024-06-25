@@ -67,7 +67,7 @@ public class StuController {
     public String updateForm(@RequestParam(name = "stuNum") int stuNum , Model model){
 
         //정보를 수정할 학생의 원래 정보를 html에 전달해야 함.
-        //1. 정보를 수정할 학생 한명을 pick!!
+        //1. 정보를 수정할 학생 '1명'을 pick!!
         StuVO stuVO = studentService.getStuDetail(stuNum);
         //2. 학번 데이터를 이용하여 html로 데이터 전송
         model.addAttribute("stu",stuVO );
