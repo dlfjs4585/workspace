@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 //TEST_MEMBER 테이블에 데이터를 조작하는 DB 작업을 하는 클래스
-@Service("memberService")
+
+//MemberServiceImpl memberService = new MemberServiceImpl();
+@Service("memberService") //@Service 괄호 안에 들어가는 문자는 객체의 이름으로 사용한다.
 public class MemberServiceImpl implements MemberService {
     //sqlSessionTemplate 객체 : 쿼리 실행을 위한 메서드를 가지고 있는 객체
     //쿼리 실행을 위한 메서드

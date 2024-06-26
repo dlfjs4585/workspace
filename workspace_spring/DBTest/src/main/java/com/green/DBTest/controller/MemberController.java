@@ -6,6 +6,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//프로그램을 run하면 MemberController memberController = new MemberController();로 객체를 생성하고 시작한다.
 @Controller
 public class MemberController {
 
