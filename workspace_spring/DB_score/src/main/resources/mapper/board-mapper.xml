@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="boardMapper">
+    <resultMap id="board" type="com.green.DB_score.vo.BoardVO">
+        <result column="BOARD_NUM" property="boardNum"/>
+        <result column="TITLE" property="title"/>
+        <result column="WRITER" property="writer"/>
+        <result column="CONTENT" property="content"/>
+        <result column="READ_CNT" property="readCnt"/>
+    </resultMap>
+
+    <select id="getBoardList" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , WRITER
+            , READ_CNT
+        FROM simple_board
+    </select>
+
+    <insert id="insert">
+        INSERT INTO simple_board (
+            BOARD_NUM
+            , TITLE
+            , WRITER
+            , CONTENT
+            , READ_CNT
+        ) VALUES (
+            #{boardNum}
+            ,#{title}
+            ,#{writer}
+            ,#{content}
+            ,#{readCnt}
+        );
+    </insert>
+
+    <select id="getBoardNum" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , WRITER
+            , CONTENT
+        FROM simple_board
+        WHERE BOARD_NUM = #{boardNum};
+    </select>
+
+    <update id="setBoardList">
+        UPDATE simple_board
+        SET
+            TITLE
+            , WRITER
+            , CONTENT
+        WHERE BOARD_NUM = #{boardNum};
+    </update>
+
+    <delete id="delete">
+        DELETE FROM simple_board
+        WHERE BOARD_NUM = #{boardNum};
+    </delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
