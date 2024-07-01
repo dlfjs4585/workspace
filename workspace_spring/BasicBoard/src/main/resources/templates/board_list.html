@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <form action="/" method="post">
+      <select name="searchKeyword">
+        <option value="writer">작성자</option>
+        <option value="title">제목</option>
+      </select>
+      <input type="text" name="searchValue">
+      <input type="submit" value="검색">
+    </form>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <td>글번호</td>
+          <td>제목</td>
+          <td>작성자</td>
+          <td>작성일</td>
+          <td>조회수</td>
+        </tr>
+      </thead>
+      <tbody>
+        <th:block th:if="${#lists.isEmpty(boardVOList)}">
+          <tr>
+            <td colspan="5"> 현재 게시글이 없습니다.</td>
+          </tr>
+        </th:block>
+        <th:block th:unless="${#lists.isEmpty(boardVOList)}">
+          <tr th:each="board : ${boardVOList}">
+            <td>[[${board.boardNum}]]</td>
+            <td>
+              <a th:href="@{/boardDetail(boardNum=${board.boardNum})}">[[${board.title}]]</a>
+            </td>
+            <td>[[${board.writer}]]</td>
+            <td>[[${board.createDate}]]</td>
+            <td>[[${board.readCnt}]]</td>
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <input type="button" value="글쓰기" onclick="goWrite()">
+  </div>
+  <script>
+    function goWrite() {
+      location.href='/writeForm'
+    }
+  </script>
+</body>
+</html>

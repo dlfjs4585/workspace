@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <table>
+      <tr>
+        <td>글번호</td>
+        <td>[[${board.boardNum}]]</td>
+        <td>조회수</td>
+        <td>[[${board.readCnt}]]</td>
+      </tr>
+      <tr>
+        <td>작성일</td>
+        <td>[[${board.createDate}]]</td>
+        <td>작성자</td>
+        <td>[[${board.writer}]]</td>
+      </tr>
+      <tr>
+        <td>제목</td>
+        <td>[[${board.title}]]</td>
+      </tr>
+      <tr>
+        <td>내용</td>
+        <textarea name="">[[${board.content}]]</textarea>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <input type="button" value="목록가기" onclick="goBack()">
+    <input type="button" value="수정">
+    <input type="button" value="삭제">
+  </div>
+  <script>
+    function goBack() {
+      location.href= '/'
+    }
+
+    function goUpdate(boardNum) {
+      location.href=`/updateForm?boardNum=$`
+    }
+
+    function goDelete(params) {
+      
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/boardDetail" method="post">
+    <div>
+      <table>
+        <tr>
+          <td>글번호</td>
+          <td><input type="hidden" name="boardNum" th:value="${board.boardNum}">[[${board.boardNum}]]</input></td>
+          <td>조회수</td>
+          <td><input type="hidden" name="readCnt" th:value="${board.readCnt}">[[${board.readCnt}]]</input></td>
+        </tr>
+        <tr>
+          <td>작성일</td>
+          <td><input type="hidden" name="createDate" th:value="${board.createDate}">[[${board.createDate}]]</input></td>
+          <td>작성자</td>
+          <td><input type="hidden" name="writer" th:value="${board.writer}">[[${board.writer}]]</input></td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td>
+            <input type="text" name="title" th:value="${board.title}">
+          </td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <textarea name="content">[[${board.content}]]</textarea>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <input type="button" value="뒤로가기">
+      <input type="submit" value="수정">
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/boardUp" method="post">
+    <div>
+      <table>
+        <tr>
+          <td>제목</td>
+          <td><input type="text" name="title"></td>
+        </tr>
+        <tr>
+          <td>작성자</td>
+          <td><input type="text" name="writer"></td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td>
+            <textarea name="content"></textarea>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <input type="submit" value="글등록">
+    </div>
+  </form>
+</body>
+</html>

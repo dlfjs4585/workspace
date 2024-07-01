@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="boardMapper">
+    <resultMap id="board" type="com.green.BasicBoard.vo.BoardVO">
+        <result column="BOARD_NUM" property="boardNum"/>
+        <result column="TITLE" property="title"/>
+        <result column="WRITER" property="writer"/>
+        <result column="CONTENT" property="content"/>
+        <result column="CREATE_DATE" property="createDate"/>
+        <result column="READ_CNT" property="readCnt"/>
+    </resultMap>
+
+    <select id="getBoardList" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , WRITER
+            , CREATE_DATE
+            , READ_CNT
+        FROM basic_board
+        <if test="searchValue != null and !searchValue.equals('')">
+            <!--컬럼명에 변수가 오면 #이 아니라 $를 사용한다-->
+            WHERE ${searchKeyword} LIKE CONCAT('%', #{searchValue}, '%')
+        </if>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO basic_board (
+            TITLE
+            , WRITER
+            , CONTENT
+        ) VALUES (
+            #{title}
+            , #{writer}
+            , #{content}
+        )
+    </insert>
+
+    <select id="getBoardNum" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , WRITER
+            , CONTENT
+            , CREATE_DATE
+            , READ_CNT
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <update id="setBoardList">
+        UPDATE basic_board
+        SET
+            TITLE
+            , CONTENT
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
+
+    <delete id="boardDelete">
+        DELETE FROM basic_board
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
