@@ -26,26 +26,29 @@
       </tr>
       <tr>
         <td>내용</td>
-        <textarea name="">[[${board.content}]]</textarea>
+        <textarea>[[${board.content}]]</textarea>
       </tr>
     </table>
   </div>
   <div>
     <input type="button" value="목록가기" onclick="goBack()">
-    <input type="button" value="수정">
-    <input type="button" value="삭제">
+    <input type="button" value="수정" th:onclick="goUpdate([[${board.boardNum}]])">
+    <input type="button" value="삭제" th:onclick="goDelete([[${board.boardNum}]])">
   </div>
   <script>
     function goBack() {
-      location.href= '/'
+      location.href= '/';
     }
 
     function goUpdate(boardNum) {
-      location.href=`/updateForm?boardNum=$`
+      location.href=`/updateForm?boardNum=${boardNum}`;
     }
 
-    function goDelete(params) {
-      
+    function goDelete(boardNum) {
+      const result = confirm('삭제하시겠습니까?');
+      if (result) {
+        location.href=`/boardDelete?boardNum=${boardNum}`;
+      }
     }
   </script>
 </body>

@@ -49,8 +49,11 @@ public class BoardController {
     // 글 상세 조회 페이지 이동
     @GetMapping("/boardDetail")
     public String boardDetail(@RequestParam(name = "boardNum") int boardNum, Model model){
+        boardService.updateReadCnt(boardNum);
+
         BoardVO vo = boardService.getBoardNum(boardNum);
         model.addAttribute("board", vo);
+
         return "board_detail";
     }
 

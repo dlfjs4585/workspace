@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>객체 다루기~</h3>
+
+  <script>
+    //객체 생성
+    const member = {
+      name : '홍길동',
+      age : 30
+    };
+
+    console.log(member);
+    console.log(member.name);
+    console.log(member['age']);
+
+
+    //문제 배열(리스트) + 객체
+    const boardList = [
+      {
+        boardNum : 1,
+        title : '자바',
+        writer : '홍길동'
+      }
+      ,{
+        boardNum : 2,
+        title : '파이썬',
+        writer : '김길동'
+      }
+      ,{
+        boardNum : 3,
+        title : '자바스크립트',
+        writer : '신길동'
+      }];
+
+      console.log(boardList);
+
+
+
+      //board_list에 저장된 모든 게시글의 제목만 출력
+
+      for(let i = 0; i < boardList.length; i++){
+        console.log(boardList[i].title);
+      }
+
+      console.log('\n')
+
+      for(const e of boardList){
+        console.log(e.title);
+      }
+      console.log('\n')
+
+      boardList.forEach(function(element, index){
+        console.log(`element = ${element.title} / index = ${index}`)
+      });
+  </script>
+</body>
+</html>

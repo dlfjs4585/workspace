@@ -19,4 +19,6 @@ public interface BoardService {
     void setBoardList(BoardVO boardVO);
 
     void boardDelete(int boardNum);
+
+    void updateReadCnt(int boardNum);
 }

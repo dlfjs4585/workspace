@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>배열 다루기</h2>
+  <script>
+    //배열(list) 생성
+    const arr = [];
+
+    //배열에 데이터 저장 1
+    arr[0] = 5;
+    arr[1] = 1;
+
+    //배열에 데이터 저장 2 + 자료형이 달라도 저장 가능.
+    //arr[0] = 5 -> arr[1] = 1 -> arr.push(7)
+    arr.push(7);
+    arr.push(5.5);
+    arr.push('javascript')
+
+    //console.log(arr);
+
+    //일반 반복문
+    //값이 바뀌는 변수 사용시 let
+    // for(let i = 0; i < 5; i++){
+    //   console.log(arr[i])
+    // }
+
+    // 잘 안씀
+    //for-each문
+    // for(const e of arr){
+    //   console.log(e)
+    // }
+
+    //for-each 두번째 (추천)
+    //for-each안에 함수는 이름 필요없음.
+    //첫번째 매개변수 : 반복될 데이터에서 하나씩 뺀 데이터
+    //두번째 매개변수 : 반복되고 있는 index(횟수)
+    arr.forEach(function(element, index){
+      console.log(`element = ${element} / index = ${index}`)
+    });
+
+
+  </script>
+</body>
+</html>

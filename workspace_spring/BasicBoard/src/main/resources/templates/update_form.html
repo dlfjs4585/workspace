@@ -34,9 +34,14 @@
       </table>
     </div>
     <div>
-      <input type="button" value="뒤로가기">
+      <input type="button" value="뒤로가기" onclick="goBack()">
       <input type="submit" value="수정">
     </div>
   </form>
+  <script>
+    function goBack() {
+      location.href='/'
+    }
+  </script>
 </body>
 </html>

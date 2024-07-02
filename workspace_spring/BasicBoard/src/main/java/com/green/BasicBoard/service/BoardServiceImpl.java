@@ -39,4 +39,12 @@ public class BoardServiceImpl implements BoardService{
     public void boardDelete(int boardNum) {
         sqlSession.delete("boardMapper.boardDelete", boardNum);
     }
+
+    /* 조회수 증가*/
+    @Override
+    public void updateReadCnt(int boardNum) {
+        sqlSession.update("boardMapper.updateReadCnt");
+    }
+
+
 }
