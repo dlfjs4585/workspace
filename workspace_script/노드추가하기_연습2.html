@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d{
+      border: 1px solid black;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 8px;
+      text-align: center;
+      line-height: 100px;
+      background-color: beige;
+      color: red;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>노드추가하기연습2</h2>
+
+  <input type="text" id="java">
+  <input type="button" value="확인" onclick="aa()">
+
+  <div id="result">
+
+  </div>
+
+  <script>
+    function aa(){
+      const java = document.querySelector('#java');
+      // input 태그에 입력한 값
+      const num1 = java.value;
+      let div = ``;
+      for(let i = 0; i < num1; i++){
+        div += `<div class="d">${i+1}</div>`;
+      }
+      const result_div = document.querySelector('#result');
+
+      result_div.innerHTML ='';
+      result_div.insertAdjacentHTML('beforeend',div)
+
+    };
+
+  </script>
+</body>
+</html>

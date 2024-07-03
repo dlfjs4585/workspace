@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" name="이름" class="input1" placeholder="이름입력">
+  </div>
+
+  <div id="d1">두번째 div</div>
+
+  <table border="1">
+    <tr>
+      <td>국어점수</td>
+      <td>영어점수</td>
+    </tr>
+    <tr class="aaa">
+      <td>70</td>
+      <td>80</td>
+    </tr>
+  </table>
+
+  <span></span>
+  <script>
+    // 선택한 태그의 속성값 받아오기
+    // input 태그 선택
+    const inputTag = document.querySelector('input');
+    console.log(inputTag.type);
+    console.log(inputTag.name);
+    console.log(inputTag.placeholder);
+    console.log(inputTag.className);
+    
+    // 선택한 태그의 속성값 변경
+    inputTag.name = 'java';
+    inputTag.placeholder = '바뀐 내용';
+    
+    //'두번째 div' 자바스크립트로 가져와서 console에 출력
+    const d1 = document.querySelector('#d1');
+    console.log(d1.textContent);
+    
+    //tr태그의 점수 합산 
+    // 첫번째 방법
+    const num1 = document.querySelector('.aaa > td:first-child').textContent;
+    const num2 = document.querySelector('.aaa > td:last-child').textContent;
+    const result = Number(num1) + Number(num2);
+    console.log(result);
+
+    
+    const a = document.querySelector('span');
+    a.textContent = result;
+    console.log(a);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  </script>
+</body>
+</html>

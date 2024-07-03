@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="행 추가" onclick="addRow()">
+  <input type="button" value="제목줄을 제외한 모든 행 삭제" onclick="deleteAll()">
+  <table border="1" style="width: 500px;">
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  <script>
+    function addRow(){
+      // `` <- 이걸로 하면 복붙가능.
+      const row1 = `
+      <tr>
+        <td>
+          <input type="text">
+        </td>
+        <td>
+          <input type="text">
+          <input type="button" value="삭제" onclick="inputDelete(this)">
+        </td>
+      </tr>
+      `;
+      const tbodyTag = document.querySelector('table > tbody');
+      tbodyTag.insertAdjacentHTML('beforeend', row1)
+    }
+
+    function deleteAll(){
+      const tbodyTag = document.querySelector('table > tbody');
+       tbodyTag.innerHTML = ''; //선택한 태그 안의 내용을 공백으로 변경
+      //tbodyTag.remove(); //선택한 태그가 삭제됨
+    }
+
+    function inputDelete(selectedTag){
+      // 매개변수로 전달되는 this : 현재 이벤트가 발생한 태그
+      const tr = document.querySelector('table > tbody > tr')
+      // 내가 클릭한 삭제 버튼을 감싸고 있는 가장 가까운 tr태그
+      selectedTag.closest('tr').remove();
+    }
+
+  </script>
+</body>
+</html>
