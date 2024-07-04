@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d1{
+      width: 500px;
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="d1">
+    div태그
+  </div>
+  
+  <input type="text">
+  <script>
+    // 이벤트를 사용할 태그를 선택
+    const div = document.querySelector('.d1');
+
+    // 선택한 태그에 이벤트 추가
+    div.addEventListener('click', function(){
+      // 이벤트 발생 시 동작할 코드
+      alert(1);
+    });
+
+    div.addEventListener('mousemove', function(){
+      console.log(1);
+    });
+    
+    const inputTag = document.querySelector('input');
+
+    // event : event의 모든 정보가 담긴 데이터
+    inputTag.addEventListener('keyup', function(event){
+      // 키보드로 입력한 값을 console 출력
+      // console.log(inputTag.value);
+      console.log(event.target.value);
+      
+    });
+    
+    
+    
+  </script>
+</body>
+</html>
