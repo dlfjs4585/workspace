@@ -1,4 +1,4 @@
-package JavaTest.calculate;
+package JavaTest.Calculate;
 
 public class Calculate {
 
@@ -43,7 +43,7 @@ public class Calculate {
             cnt++;
         }
 
-        return sum / (double) cnt;
+        return (double)sum / cnt;
     }
 
 }
