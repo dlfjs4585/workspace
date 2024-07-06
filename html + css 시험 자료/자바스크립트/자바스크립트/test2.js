@@ -6,7 +6,7 @@ function setAvgAge(){
   age_Tag.forEach(function(tag, i){
     sum += Number(tag.textContent);
   });
-  avg = sum/3;
+  avg = sum/age_Tag.length;
 
   const result =document.querySelector('#resultTd');
 
