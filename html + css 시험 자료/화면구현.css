@@ -2,22 +2,28 @@ body{
   margin: auto;
   width: 1500px;
 }
-.container{
-  border: 1px solid black;
-}
-
 
 .inventory{
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
-  border: 1px solid black;
+  justify-content: space-around;
 }
 
 ul > li{
   text-align: center;
   display: inline-block;
-  margin: 0px 5px;
+  margin: 0px 20px;
   
+}
+
+.search{
+  display: flex;
+  position: relative;
+}
+
+.bi-search{
+  position: absolute;
+  transform: translate( 930% , 10% );
 }
 
 .main{
@@ -42,11 +48,34 @@ ul > li{
   color: orange;
 }
 
+.text{
+  color: white;
+}
+
+.main > div > button{
+  margin-top: 20px;
+  background-color: orange;
+  border: 0;
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.textImg{
+  text-align: center;
+  margin: 50px 0px;
+}
+
+div > h3{
+  font-weight: 500;
+}
 
 .footer{
   width: 100%;
   display: flex;
   position: relative;
+  justify-content: space-between;
 }
 
 
@@ -54,3 +83,10 @@ ul > li{
   width: 100%;
 }
 
+.postInfo{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  position: absolute;
+  transform: translate(0, -110%);
+}
