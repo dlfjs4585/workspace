@@ -34,6 +34,24 @@ item_list.forEach(function(java, i){
   }
 });
 
+console.log('\n');
+
+for(let i = 0; i < item_list.length; i++){
+  if(item_list[i].brand == 'java마켓'){
+    console.log(item_list[i].item_name, item_list[i].price);
+  }
+}
+
+console.log('\n');
+
+for(const e of item_list){
+  if(e.brand == 'java마켓'){
+    console.log(e.item_name, e.price);
+  }
+}
+
+console.log('\n');
+
 //2. 95사이즈를 구매할 수 있는 상품들의 상품명을 콘솔창에 출력하시오.
 item_list.forEach(function(java, i){
   for(let i = 0; i < java.size.length; i++){
@@ -43,20 +61,29 @@ item_list.forEach(function(java, i){
   }
 });
 
+console.log('\n');
+
 //3. '등록 및 출력' 버튼을 클릭하면 입력 내용 저장 후 콘솔창에 데이터를 출력하시오.
 function addItem(){
-  const item_name1 = document.querySelector('#itemName');
-  const price1 = document.querySelector('#price');
-  const brand1 = document.querySelector('#brand');
-  const size1 = document.querySelectorAll('.size');
+  const arr = [];
 
-  const input1 = item_name1.value;
-  const input2 = price1.value;
-  const input3 = brand1.value;
+  //체크박스
+  const chks = document.querySelectorAll('.size:checked');
+  chks.forEach((chk, i) => {
+    arr.push(chk.value);
+  });
 
-  
-
-  item_list.push({item_name : input1, price : input2, brand : input3, });
+  // 추가할 객체
+  const add_data = {
+    item_name : document.querySelector('#itemName').value,
+    price : document.querySelector('#price').value,
+    brand : document.querySelector('#brand').value,
+    size : arr
+  }
+  item_list.push(add_data);
 
   console.log(item_list);
+
+
+
 }

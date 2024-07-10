@@ -1,0 +1,44 @@
+.header{
+  background-color: black;
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+.banner{
+  height: 350px;
+  width: 100%;
+}
+
+.banner img{
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  object-position: center;
+}
+
+.main{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.item{
+  text-align: center;
+  width: 150px;
+}
+
+.item img{
+  width: 100%;
+}
+
+.item h3{
+  margin: 0px;
+}
+
+.item p{
+  margin: 5px;
+}
