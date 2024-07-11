@@ -4,53 +4,35 @@ import data from './data';
 import ItemList from './ItemList';
 import Item from './Item';
 import axios, { Axios } from 'axios';
+import { Link, Route, Router, Routes } from 'react-router-dom';
+import Detail from './Detail';
 
 function App() {
-  //const item_list = data;
-  let item_list = [];
-
-  axios.get('/test1')
-    .then((response) => {
-      console.log(response.data);
-    });
-
-  axios.get('/test2')
-    .then((res) => {
-      console.log(res.data);
-    });
-
-  axios.get('/test3')
-    .then((res) => {
-      console.log(res.data);
-    });
-
-  axios.get('/test4')
-    .then((res) => {
-      console.log(res.data);
-      item_list = res.data;
-    });
+  const item_list = data;
 
   return (
     <div className="App">
       <div className="header">
-        Book shop
+        <Link to={'/'}>Book shop</Link>
+        <Link to={'/list'}>상품 목록</Link>
+        <Link to={'/detail'}>상품 상세</Link>
       </div>
       <div className="banner">
         <img src={process.env.PUBLIC_URL + '/header.jpg'} />
       </div>
-      <ItemList item_list={item_list} />
+
+      {/* 이동할 수 있는 페이지의 url들 */}
+      <Routes>
+        <Route path='/' element={<div>메인 페이지</div>} />
+        <Route path='/list' element={<div><ItemList item_list={item_list} /></div>} />
+        <Route path='/detail/:id' element={<Detail item_list={item_list} />} />
+        <Route path='*' element={<div>잘못된 페이지입니다.</div>} />
+      </Routes>
+
+      {/* <ItemList item_list={item_list} /> */}
       
     </div>
   );
 }
-
-const Test = ({name, age}) => {
-  console.log(name);
-  console.log(age);
-  return(
-    <div>sdf</div>
-  );
-}
-
 
 export default App;

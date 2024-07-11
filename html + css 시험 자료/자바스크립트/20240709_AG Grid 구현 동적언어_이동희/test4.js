@@ -14,6 +14,7 @@ function checkAllMenu(){
 
 function checkAllOption(e){
 
+  // 다음 형제 노드 찾아감
   const ul = e.nextElementSibling;
 
   const input = ul.querySelectorAll('input')

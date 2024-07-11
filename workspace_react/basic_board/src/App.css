@@ -1,0 +1,26 @@
+.table{
+  margin: auto;
+  border: 1px solid black;
+  width: 500px;
+  text-align: center;
+}
+
+.table table{
+  margin: auto;
+}
+
+thead{
+  
+  background-color: skyblue;
+  font-weight: bold;
+  color: white;
+}
+
+tbody{
+  background-color: cornflowerblue;
+  font-weight: bold;
+}
+
+.table button{
+  margin-top: 30px;
+}
