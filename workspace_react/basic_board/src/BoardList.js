@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Board from "./Board";
 
 const BoardList = ({board_list}) => {
-  
+  const navigate = useNavigate();
   return(
     <div className="table">
       <table>
@@ -23,7 +24,7 @@ const BoardList = ({board_list}) => {
           }
         </tbody>
       </table>
-      <button type="button">글 쓰기</button>
+      <button type="button" onClick={(e) => {navigate('/writeForm')}}>글 쓰기</button>
     </div>
   );
 };
