@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a37577fe-2ab9-4d1d-aba8-4c2a9c7369e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../workspace_java/JavaBasic/src/여섯_배열/ArrayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../workspace_java/JavaTest/src/test/Test4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../workspace_java/JavaTest/src/test/Test4.java" afterDir="false" />
-    </list>
+    <list default="true" id="a37577fe-2ab9-4d1d-aba8-4c2a9c7369e2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2j7owiXnG88cIrTVdtdmnch32Dv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,6 +21,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>

@@ -1,11 +1,6 @@
 #port 변경
 server.port=8080
 
-#thymleaf cashe false
-spring.thymeleaf.cache=false
-spring.devtools.livereload.enabled=true
-spring.devtools.restart.enabled=true
-
 
 #데이터베이스 접속 정보
 #spring.datasource.driverClassName=org.mariadb.jdbc.Driver
