@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="stuMapper">
+
+	<resultMap id="stu" type="com.green.ReactStudent.vo.StuVO">
+        <id column="STU_NUM" property="stuNum" />
+        <result column="STU_NAME" property="stuName" />
+        <result column="KOR_SCORE" property="korScore" />
+        <result column="ENG_SCORE" property="engScore" />
+        <result column="MATH_SCORE" property="mathScore" />
+        <result column="STU_AGE" property="stuAge" />
+        <result column="STU_TEL" property="stuTel" />
+        <result column="STU_ADDR" property="stuAddr" />
+    </resultMap>
+
+    <select id="getStuList" resultMap="stu">
+        SELECT STU_NUM
+            , STU_NAME
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
+        FROM REACT_STUDENT;
+    </select>
+
+    <insert id="insertStu" >
+        INSERT INTO REACT_STUDENT(
+            STU_NAME
+            , STU_AGE
+            , STU_TEL
+            , STU_ADDR
+        ) VALUES(
+            #{stuName}
+            , #{stuAge}
+            , #{stuTel}
+            , #{stuAddr}
+        );
+    </insert>
+
+    <select id="getStuDetail" resultMap="stu">
+        SELECT STU_NUM
+            , STU_NAME
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
+            , STU_AGE
+            , STU_TEL
+            , STU_ADDR
+        FROM REACT_STUDENT
+        WHERE STU_NUM = #{stuNum};
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

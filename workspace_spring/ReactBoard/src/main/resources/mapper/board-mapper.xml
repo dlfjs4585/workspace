@@ -33,7 +33,7 @@
         WHERE BOARD_NUM = #{boardNum};
     </select>
 
-    <insert id="">
+    <insert id="regBoard">
         INSERT INTO REACT_BOARD (
             BOARD_TITLE
             , BOARD_WRITER
@@ -41,9 +41,18 @@
         ) VALUES (
             #{boardTitle}
             , #{boardWriter}
-            . #{boardContent}
+            , #{boardContent}
         );
     </insert>
+
+    <delete id="deleteBoard">
+        DELETE FROM REACT_BOARD
+        WHERE BOARD_NUM = #{boardNum};
+    </delete>
+
+    <update id="">
+        
+    </update>
 </mapper>
 
 

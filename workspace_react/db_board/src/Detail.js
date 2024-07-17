@@ -20,6 +20,20 @@ const Detail = () => {
     });
   }, []);
 
+  function deleteBoard(){
+    if(window.confirm('삭제하시겠습니까?')){
+      axios
+      .delete(`/deleteBoard/${params.boardNum}`)
+      .then((res) => {
+        navigate('/');
+      })
+      .catch((error) => {
+        alert('오류 발생!!')
+        console.log(error);
+      });
+    }
+  }
+
   return(
     <div>
       <table>
@@ -41,7 +55,7 @@ const Detail = () => {
         </tr>
       </table>
       <button type="button" onClick={() => {navigate('/')}}>뒤로가기</button>
-      <button type="button" onClick={() => {}}>삭제</button>
+      <button type="button" onClick={() => {deleteBoard()}}>삭제</button>
     </div>
   );
 }

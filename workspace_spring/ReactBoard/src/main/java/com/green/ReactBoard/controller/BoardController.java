@@ -3,9 +3,7 @@ package com.green.ReactBoard.controller;
 import com.green.ReactBoard.service.BoardService;
 import com.green.ReactBoard.vo.VO;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +33,15 @@ public class BoardController {
     }
 
     // 게시글 등록
+    @PostMapping("/regBoard")
+    public void regBoard(@RequestBody VO vo){
+        System.out.println(vo);
+        boardService.regBoard(vo);
+    }
 
-
+    // 게시글 삭제
+    @DeleteMapping("/deleteBoard/{boardNum}")
+    public void deleteBoard(@PathVariable("boardNum") int boardNum){
+        boardService.deleteBoard(boardNum);
+    }
 }

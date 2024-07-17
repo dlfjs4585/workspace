@@ -13,5 +13,8 @@ public interface BoardService {
     VO getBoardDetail(int boardNum);
 
     // 게시글 등록
-    void setBoard(VO vo);
+    void regBoard(VO vo);
+
+    // 게시글 삭제
+    void deleteBoard(int boardNum);
 }

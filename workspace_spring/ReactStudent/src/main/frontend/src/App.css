@@ -1,0 +1,43 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.header{
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  background-color: rgb(205, 228, 236);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header > ul{
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header > ul > li{
+  font-size: 18px;
+}
+
+li > span{
+  cursor: pointer;
+}
+
+ul span:hover{
+  font-weight: bold;
+}
+
+.content{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+table{
+  width: 70%;
+}

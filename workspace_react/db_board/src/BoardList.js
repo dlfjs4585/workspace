@@ -15,8 +15,8 @@ const BoardList = () => {
   // 게시글 목록 조회
   useEffect(() => {
     axios
-  .get('/boardList')
-  .then((res) => {
+    .get('/boardList')
+    .then((res) => {
     setBoardList(res.data);
     console.log(res.data)
   })
@@ -54,7 +54,7 @@ const BoardList = () => {
           }
         </tbody>
       </table>
-      <button type="button" onClick={() => {navigate('/writeForm')}}>글쓰기</button>
+      <button type="button" onClick={(e) => {navigate('/writeForm')}}>글쓰기</button>
     </>
   );
 }
