@@ -27,4 +27,14 @@ public class StuServiceImpl implements StuService{
     public StuVO getStuDetail(int stuNum) {
         return sqlSession.selectOne("stuMapper.getStuDetail", stuNum);
     }
+
+    @Override
+    public void delStu(int stuNum) {
+        sqlSession.delete("stuMapper.delStu", stuNum);
+    }
+
+    @Override
+    public void updateScore(StuVO stuVO) {
+        sqlSession.update("stuMapper.updateScore", stuVO);
+    }
 }

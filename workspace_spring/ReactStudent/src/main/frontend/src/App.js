@@ -8,6 +8,7 @@ import RegStu from './RegStu';
 import Delstu from './DelStu';
 import Score from './Score';
 import Detail from './Detail';
+import SetScore from './SetScore';
 
 function App() {
 
@@ -36,8 +37,10 @@ function App() {
           <Route path='/detail/:stuNum' element={<Detail />} />
           {/* 학생 삭제 페이지 */}
           <Route path='/delStu' element={<Delstu />} />
-          {/* 학생 관리 페이지 */}
+          {/* 학생 성적 관리 페이지 */}
           <Route path='/score' element={<Score />} />
+          {/* 학생 성적 입력 페이지 */}
+          <Route path='/setScore/:stuNum' element={<SetScore />} />
         </Routes>
       </div>
 

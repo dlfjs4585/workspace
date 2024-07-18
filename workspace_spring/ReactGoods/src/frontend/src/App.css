@@ -6,8 +6,9 @@
 .header{
   width: 80%;
   height: 50px;
-  margin: auto;
-  background-color: rgb(205, 228, 236);
+  margin: 20px auto;
+  padding: 10px;
+  background-color: lightblue;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -21,19 +22,14 @@
 }
 
 .header > ul > li{
-  font-size: 18px;
-}
-
-li > span{
-  cursor: pointer;
+  font-size: 20px;
 }
 
 ul span:hover{
   font-weight: bold;
+  color: white;
 }
 
-.content{
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 20px;
+li > span{
+  cursor: pointer;
 }

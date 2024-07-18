@@ -51,6 +51,19 @@
         WHERE STU_NUM = #{stuNum};
     </select>
 
+    <delete id="delStu">
+        DELETE FROM REACT_STUDENT
+        WHERE STU_NUM = #{stuNum};
+    </delete>
+
+    <update id="updateScore" >
+        UPDATE REACT_STUDENT
+        SET KOR_SCORE = #{korScore}
+            , ENG_SCORE = #{engScore}
+            , MATH_SCORE = #{mathScore}
+        WHERE STU_NUM = #{stuNum};
+    </update>
+
 </mapper>
 
 

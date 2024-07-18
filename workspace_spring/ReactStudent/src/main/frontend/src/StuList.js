@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import './reset.css';
+import './studentList.css';
 
 const StuList = () => {
   const navigate = useNavigate();
@@ -33,15 +35,20 @@ const StuList = () => {
         </thead>
         <tbody>
           {
+            stuList.length == 0 ?
+            <tr>
+              <td colSpan='6'>조회된 데이터가 없습니다.</td>
+            </tr>
+            :
             stuList.map((stu, i) => {
               return(
                 <tr key={i}>
-                  <td>{stu.stuNum}</td>
+                  <td>{i + 1}</td>
                   <td><span onClick={() => {navigate(`/detail/${stu.stuNum}`)}}>{stu.stuName}</span></td>
                   <td>{stu.korScore}</td>
                   <td>{stu.engScore}</td>
                   <td>{stu.mathScore}</td>
-                  <td>{(stu.korScore + stu.engScore + stu.mathScore)/3}</td>
+                  <td>{Math.round((stu.korScore + stu.engScore + stu.mathScore) / 3 * 10 )/ 10}</td>
                 </tr>
               );
             })
