@@ -1,0 +1,9 @@
+.detail{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button{
+  display: block;
+  margin: 0 auto;
+}

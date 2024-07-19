@@ -15,7 +15,7 @@ const SetScore = () => {
       [e.target.name] : e.target.value
     });
   }
-
+  
   useEffect(() => {
     axios
     .get(`/getStuDetail/${stuNum}`)
