@@ -12,8 +12,26 @@ public class BoardServiceImpl implements BoardService{
     @Autowired
     private SqlSessionTemplate sqlSession;
 
+    //게시글 목록 조회
     @Override
     public List<BoardVO> getBoardList() {
         return sqlSession.selectList("boardMapper.getBoardList");
     }
+
+    @Override
+    public void insertBoard(BoardVO boardVO) {
+        sqlSession.insert("boardMapper.insertBoard", boardVO);
+    }
+
+    @Override
+    public BoardVO getBoardDetail(int boardNum) {
+        return sqlSession.selectOne("boardMapper.getBoardDetail", boardNum);
+    }
+
+    @Override
+    public void updateBoard(BoardVO boardVO) {
+        sqlSession.update("boardMapper.updateBoard", boardVO);
+    }
+
+
 }

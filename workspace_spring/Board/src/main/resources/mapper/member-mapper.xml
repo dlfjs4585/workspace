@@ -3,40 +3,45 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="memberMapper">
-	<resultMap id="member" type="com.green.Board.vo.MemberVO">
-        <id column="MEM_ID" property="memId" />
-        <result column="MEM_PW" property="memPw" />
-        <result column="MEM_NAME" property="memName" />
-        <result column="GENDER" property="gender" />
-        <result column="MEM_ROLE" property="memRole" />
+
+    <resultMap id="member" type="com.green.Board.vo.MemberVO">
+        <id column="MEM_ID"         property="memId"/>
+        <result column="MEM_PW"     property="memPw"/>
+        <result column="MEM_NAME"   property="memName"/>
+        <result column="GENDER"     property="gender"/>
+        <result column="MEM_ROLE"   property="memRole"/>
     </resultMap>
 
-    <insert id="regMember" >
-        INSERT INTO BOARD_MEMBER(
+    <!--아이디 중복 확인-->
+    <select id="isDuplicate" resultType="String">
+        SELECT MEM_ID
+        FROM BOARD_MEMBER
+        WHERE MEM_ID = #{memId}
+    </select>
+
+    <!--회원 가입-->
+    <insert id="join">
+        INSERT INTO BOARD_MEMBER (
             MEM_ID
             , MEM_PW
             , MEM_NAME
             , GENDER
-        ) VALUES(
+        ) VALUES (
             #{memId}
             , #{memPw}
             , #{memName}
             , #{gender}
-        );
+        )
     </insert>
 
-    <select id="getMemId" resultMap="member">
-        SELECT MEM_ID
-        FROM BOARD_MEMBER
-    </select>
-
+    <!--로그인-->
     <select id="login" resultMap="member">
-        SELECT MEM_ID
-            , MEM_PW
+        SELECT MEM_ID, MEM_NAME, MEM_ROLE
         FROM BOARD_MEMBER
         WHERE MEM_ID = #{memId}
         AND MEM_PW = #{memPw}
     </select>
+
 </mapper>
 
 

@@ -3,30 +3,77 @@ import './reset.css';
 import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import BoardList from './pages/BoardList';
-import Login from './pages/Login';
-import Join from './pages/Join';
+import JoinForm from './pages/JoinForm';
+import LoginForm from './pages/LoginForm';
+import { useEffect, useState } from 'react';
+import BoardWrite from './pages/BoardWrite';
+import { login } from './apis/memberApi';
+import BoardDetail from './pages/BoardDetail';
+import BoardUpdate from './pages/BoardUpdate';
 
 function App() {
-
   const navigate = useNavigate();
+
+  const [loginInfo, setLoginInfo] = useState({});
+
+  useEffect(()=> {
+    const loginDataString = window.sessionStorage.getItem('loginInfo');
+
+    if(loginDataString != null){
+      const loginData = JSON.parse(loginDataString);
+      setLoginInfo(loginData);
+    }
+
+  }, []);
 
   return (
     <div className="container">
       <div className='header'>
-        <div className='login'>
-          <span onClick={(e) => {navigate('/login')}}>Login</span>
-          <span onClick={(e) => {navigate('/join')}}>Join</span>
+        <div>
+          {
+            loginInfo.memId == null 
+            ? 
+            <>
+              <span onClick={(e) => {navigate('/loginForm')}}>Login</span>
+              <span onClick={(e) => {navigate('/joinForm')}}>Join</span>
+            </>
+            : 
+            <div>
+              {loginInfo.memId}님 반갑습니다.
+              <span onClick={(e) => {
+                //세션스토리지에 저장된 로그인 정보를 제거
+                window.sessionStorage.removeItem('loginInfo');
+                setLoginInfo({});
+                alert('로그아웃!');
+                navigate('/');
+              }}>Logout</span>
+            </div>
+          }
+
         </div>
-        <h2>자유게시판</h2>
+        <h1>자 유 게 시 판</h1>
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/' element={<BoardList />}/>
-          <Route path='/join' element={<Join />} />
-          <Route path='/login' element={<Login />} />
+          {/* 게시글 목록 페이지 */}
+          <Route path='/' element={ <BoardList loginInfo={loginInfo}/> } />
+
+          {/* 회원가입 페이지 */}
+          <Route path='/joinForm' element={ <JoinForm /> } />
+
+          {/* 로그인 페이지 */}
+          <Route path='/loginForm' element={ <LoginForm setLoginInfo={setLoginInfo}/> } />
+
+          {/* 게시글 작성 페이지 */}
+          <Route path='/writeForm' element={ <BoardWrite loginInfo={loginInfo} />} />
+
+          {/* 게시글 상세보기 페이지  */}
+          <Route path='/detailForm/:boardNum' element={ <BoardDetail />} />
+
+          {/* 게시글 수정 페이지 */}
+          <Route path='/updateForm/:boardNum' element={ <BoardUpdate />} />
         </Routes>
       </div>
-
     </div>
   );
 }

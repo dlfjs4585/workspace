@@ -1,19 +1,18 @@
 import axios from "axios"
 
-// 회원 아이디 불러오기
-export const getId = () => {
-  const response = axios.get('/member/getId')
+//아이디 중복 체크
+export const checkId = (data) => {
+  const response = axios.get(`/member/checkId/${data}`);
   return response;
 }
 
-// 회원 가입 
-export const insertMember = (member) => {
-  const response = axios.post('/member/insertMember', member)
+//회원가입
+export const join = (data) => {
+  const response = axios.post('/member/join', data);
   return response;
 }
 
-// 로그인
-// 데이터 여러개 넘길때는 select여도 post를 사용해도 된다.
+//로그인
 export const login = (data) => {
   const response = axios.post('/member/login', data);
   return response;

@@ -2,17 +2,16 @@ package com.green.Board.service;
 
 import com.green.Board.vo.MemberVO;
 
-import java.util.List;
-
 public interface MemberService {
 
-    // 회원 가입
-    void regMember(MemberVO memberVO);
+    //아이디 중복 확인
+    boolean isDuplicateId(String memId);
 
-    // 아이디 가져오기
-    List<MemberVO> getMemId();
+    //회원가입
+    void join(MemberVO memberVO);
 
-    // 로그인
+    //로그인
     MemberVO login(MemberVO memberVO);
+
 
 }

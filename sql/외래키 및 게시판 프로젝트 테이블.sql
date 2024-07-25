@@ -54,8 +54,8 @@ INSERT INTO BOARD_MEMBER (
 SELECT * FROM board_member;
 
 
--- DELETE FROM board_member
--- WHERE MEM_ID = '아이디';
+-- DELETE FROM board
+-- WHERE TITLE = '제에에목';
 
 
 -- 게시판 정보 테이블(회원만 게시글 작성 가능)
@@ -123,6 +123,10 @@ WHERE board.BOARD_NUM = board_reply.BOARD_NUM
 ORDER BY BOARD.BOARD_NUM DESC, REPLY_NUM DESC;
 
 
+SELECT TITLE, CONTENT, CREATE_DATE, REPLY_DATE, BOARD.MEM_ID, REPLY_CONTENT, board_reply.MEM_ID
+FROM board, board_reply
+WHERE board.BOARD_NUM = board_reply.BOARD_NUM
+AND board.BOARD_NUM = 1;
 
 
 

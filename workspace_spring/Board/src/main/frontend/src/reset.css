@@ -47,8 +47,11 @@ table {
 }
 
 
+/* 에스테리스크 (모든, 전부) */
 *{
   box-sizing: border-box;
 	/* font-family: "Noto Sans", sans-serif; */
 	font-family: "Montserrat", sans-serif; 
 }
+
+
