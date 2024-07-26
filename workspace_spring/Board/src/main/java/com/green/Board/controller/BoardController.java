@@ -41,9 +41,11 @@ public class BoardController {
         boardService.updateBoard(boardVO);
     }
 
-
-
-
-
+    // 게시글 삭제
+    @DeleteMapping("/delete/{boardNum}")
+    public void deleteBoard(@PathVariable("boardNum") int boardNum){
+        System.out.println(boardNum);
+        boardService.deleteBoard(boardNum);
+    }
 
 }

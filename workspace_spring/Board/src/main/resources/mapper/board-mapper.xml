@@ -36,14 +36,15 @@
     </insert>
 
     <!--게시글 상세보기-->
-<!--    <select id="getBoardDetail" resultMap="board">-->
-<!--        SELECT BOARD_NUM-->
-<!--            , TITLE-->
-<!--            , CONTENT-->
-<!--            , CREATE_DATE-->
-<!--        FROM BOARD-->
-<!--        WHERE BOARD_NUM = #{boardNum}-->
-<!--    </select>-->
+    <select id="getBoardDetail" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , CONTENT
+            , CREATE_DATE
+            , MEM_ID
+        FROM BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
 
     <!--게시글 수정-->
     <update id="updateBoard">
@@ -53,19 +54,11 @@
         WHERE BOARD_NUM = #{boardNum}
     </update>
 
-    <select id="getBoardDetail" resultMap="board">
-        SELECT TITLE
-            , CONTENT
-            , CREATE_DATE
-            , REPLY_DATE
-            , BOARD.MEM_ID
-            , REPLY_CONTENT
-            , REPLY_NUM
-            , BOARD_REPLY.MEM_ID
-        FROM board, board_reply
-        WHERE board.BOARD_NUM = board_reply.BOARD_NUM
-        AND board.BOARD_NUM = #{boardNum};
-    </select>
+    <delete id="deleteBoard" >
+        DELETE FROM BOARD
+        WHERE BOARD_NUM = #{boardNum};
+    </delete>
+
 
 </mapper>
 

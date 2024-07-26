@@ -89,13 +89,13 @@ CREATE TABLE BOARD_REPLY(
 INSERT INTO BOARD_REPLY(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
 VALUES ('댓글1', 'java', 1);
 INSERT INTO BOARD_REPLY(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES ('댓글2', 'java', 2);
+VALUES ('댓글2', 'java', 3);
 INSERT INTO BOARD_REPLY(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES ('댓글3', 'java', 1);
+VALUES ('댓글3', 'java', 3);
 INSERT INTO BOARD_REPLY(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
 VALUES ('댓글4', 'admin', 1);
 INSERT INTO BOARD_REPLY(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES ('댓글5', 'admin', 2);
+VALUES ('댓글입력', 'admin', 6);
 
 
 SELECT * FROM BOARD_MEMBER;
@@ -128,8 +128,61 @@ FROM board, board_reply
 WHERE board.BOARD_NUM = board_reply.BOARD_NUM
 AND board.BOARD_NUM = 1;
 
+-- 아이디가 'java'인 회원이 작성한 게시글의
+-- 글제목, 내용, 작성자Id, 작성자명, 작성자 권한 조회
+SELECT TITLE, CONTENT, b.MEM_ID, MEM_NAME, MEM_ROLE
+FROM board_member m, board b
+WHERE m.MEM_ID = b.MEM_ID
+AND b.MEM_ID = 'java1';
+
+
+-- 글번호가 5번 이하인 게시글의
+-- 글번호, 제목, 글 작성자를 조회하되
+-- 글번호 기준 오름차순으로 정렬
+
+SELECT BOARD_NUM, TITLE, MEM_NAME
+FROM board_member M, board B
+WHERE M.MEM_ID = B.MEM_ID
+AND BOARD_NUM <= 5
+ORDER BY BOARD_NUM ;
+
+
+-- 1번 게시글의 게시글 제목, 작성자 id 및 
+-- 1번 게시글에 작성된 댓글내용, 댓글 작성자 id를 조회
+
+SELECT TITLE, b.MEM_ID, REPLY_CONTENT, r.MEM_ID
+FROM board b, board_reply r 
+WHERE b.BOARD_NUM = r.BOARD_NUM
+AND b.BOARD_NUM = 1;
+
+-- 1번 게시글의 게시글 제목, 작성자 id 및 
+-- 1번 게시글에 작성된 댓글내용, 댓글 작성자 id, 댓글 작성자 이름를 조회
+
+
+SELECT TITLE, b.MEM_ID, REPLY_CONTENT, r.MEM_ID, MEM_NAME
+FROM board b, board_reply r, board_member m
+WHERE b.BOARD_NUM = r.BOARD_NUM
+AND m.MEM_ID = r.MEM_ID
+AND b.BOARD_NUM = 1;
+
+
+SELECT TITLE, BOARD.MEM_ID, MEM_NAME, MEM_ROLE, BOARD_NUM
+FROM BOARD_MEMBER, BOARD
+WHERE BOARD_MEMBER.MEM_ID = BOARD.MEM_ID;
+
+
+-- 게시글 번호, 게시글 제목, 게시글 작성자, 게시글 작성일, 게시글 내용
+-- 댓글 작성일, 댓글 작성자 id, 댓글 내용
+
+SELECT B.BOARD_NUM, TITLE, B.MEM_ID, CREATE_DATE, CONTENT, 
+		REPLY_DATE, R.MEM_ID, REPLY_CONTENT, REPLY_NUM
+FROM board B, board_reply R
+WHERE B.BOARD_NUM = R.BOARD_NUM
+AND B.BOARD_NUM = 1;
 
 
 
+DELETE FROM board
+WHERE BOARD_NUM = 7;
 
-
+SELECT * FROM board;

@@ -68,7 +68,7 @@ function App() {
           <Route path='/writeForm' element={ <BoardWrite loginInfo={loginInfo} />} />
 
           {/* 게시글 상세보기 페이지  */}
-          <Route path='/detailForm/:boardNum' element={ <BoardDetail />} />
+          <Route path='/detailForm/:boardNum' element={ <BoardDetail loginInfo={loginInfo} />} />
 
           {/* 게시글 수정 페이지 */}
           <Route path='/updateForm/:boardNum' element={ <BoardUpdate />} />
