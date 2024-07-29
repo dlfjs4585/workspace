@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="salesMapper">
+	<resultMap id="sales" type="com.green.CarManagement.vo.SalesVO">
+        <id column="SALE_NUM"                  property="saleNum" />
+        <result column="BUYER_NAME"            property="buyerName" />
+        <result column="BUYER_TEL"             property="buyerTel" />
+        <result column="COLOR"                 property="color" />
+        <result column="SALE_DATE"             property="saleDate" />
+        <result column="CAR_NUM"               property="carNum" />
+        <collection property="carVO"       resultMap="carMapper.car" />
+    </resultMap>
+
+
+    <insert id="insertSaleInfo" >
+        INSERT INTO SALES_INFO(
+            BUYER_NAME
+            , COLOR
+            , CAR_NUM
+            , BUYER_TEL
+        ) VALUES(
+            #{buyerName}
+            , #{color}
+            , #{carNum}
+            , #{buyerTel}
+        );
+    </insert>
+
+    <select id="getCarList" resultMap="sales">
+        SELECT S.CAR_NUM
+            , BUYER_NAME
+            , BUYER_TEL
+            , SALE_DATE
+            , COLOR
+            , CAR_NAME
+            , CAR_MONEY
+        FROM CAR_INFO C, SALES_INFO S
+        WHERE C.CAR_NUM = S.CAR_NUM
+    </select>
+
+
+</mapper>
+

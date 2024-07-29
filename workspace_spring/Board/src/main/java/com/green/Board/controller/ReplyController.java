@@ -30,4 +30,10 @@ public class ReplyController {
     public void deleteReply(@PathVariable("replyNum") int replyNum){
         replyService.deleteReply(replyNum);
     }
+
+    //게시글에 댓글이 있을 때 삭제
+    @DeleteMapping("/delete/{boardNum}")
+    public void delete(@PathVariable("boardNum") int boardNum){
+        replyService.delete(boardNum);
+    }
 }

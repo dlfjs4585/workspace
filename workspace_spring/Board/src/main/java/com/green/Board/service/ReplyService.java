@@ -14,4 +14,7 @@ public interface ReplyService {
     // 댓글 삭제
     void deleteReply(int replyNum);
 
+    // 게시글에 댓글이 있을 때 삭제
+    void delete(int boardNum);
+
 }

@@ -26,4 +26,9 @@ public class ReplyServiceImpl implements ReplyService{
     public void deleteReply(int replyNum) {
         sqlSession.delete("replyMapper.deleteReply", replyNum);
     }
+
+    @Override
+    public void delete(int boardNum) {
+        sqlSession.delete("replyMapper.delete", boardNum);
+    }
 }

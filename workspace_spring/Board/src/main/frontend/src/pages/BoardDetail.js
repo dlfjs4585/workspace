@@ -34,10 +34,13 @@ const BoardDetail = ({loginInfo}) => {
     })
   }, []);
 
+  
   function boardDelete(boardNum){
-    axios.delete(`/board/delete/${boardNum}`)
+    axios.all([
+      axios.delete(`/reply/delete/${boardNum}`),
+      axios.delete(`/board/delete/${boardNum}`)
+    ])
     .then((res) => {
-      alert('삭제되었습니다.')
       navigate('/')
     })
     .catch((error) => {

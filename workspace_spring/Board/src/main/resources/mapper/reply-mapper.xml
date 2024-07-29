@@ -37,6 +37,12 @@
         DELETE FROM BOARD_REPLY
         WHERE REPLY_NUM = #{replyNum};
     </delete>
+
+    <!--게시글에 댓글이 있을때, 삭제-->
+    <delete id="delete">
+        DELETE FROM BOARD_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
 </mapper>
 
 
