@@ -1,0 +1,25 @@
+table{
+  width: 80%;
+  margin: auto;
+  table-layout: fixed;
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
+table tr:first-child input{
+  width: 100%;
+}
+
+.color{
+  text-align: center;
+  width: 100%;
+}
+
+.carNum{
+  width: 100%;
+  text-align: center;
+}
+
+.tel{
+  width: 100%;
+}

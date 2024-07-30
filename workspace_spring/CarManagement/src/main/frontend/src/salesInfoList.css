@@ -1,0 +1,14 @@
+
+.sellInfo-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sellInfo-table thead{
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid black;
+}
+
+.sellInfo-table th, .sellInfo-table td{
+  border: 2px solid black;
+}

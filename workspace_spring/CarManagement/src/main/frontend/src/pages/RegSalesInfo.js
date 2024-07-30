@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../regSalesInfo.css';
 
 const RegSalesInfo = () => {
 
@@ -9,8 +10,8 @@ const RegSalesInfo = () => {
   const[carName, setCarName] = useState([]);
   const[regSale, setRegSale] = useState({
     buyerName : '',
-    color : '',
-    carNum : 0,
+    color : '블랙',
+    carNum : 1,
     buyerTel : ''
   });
 
@@ -27,15 +28,21 @@ const RegSalesInfo = () => {
   function insertRegSale(){
 
     // 값이 들어 가지 않았을때 해야함.
+    if(document.querySelector('.buyer').value == ''){
+      alert('전화 번호를 제외한 모든 정보는 필수 입력입니다.')
+      return;
+    }
+    else{
+      axios.post('/sales/insertSaleInfo', regSale)
+      .then((res) => {
+        alert('등록을 완료하였습니다.')
+        navigate('/salesInfoList')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
 
-    axios.post('/sales/insertSaleInfo', regSale)
-    .then((res) => {
-      alert('등록을 완료하였습니다.')
-      navigate('/salesInfoList')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
   }
 
   useEffect(() => {
@@ -49,18 +56,17 @@ const RegSalesInfo = () => {
   }, []);
 
   return (
-    <div>
+    <div className='contain'>
       <table>
         <tbody>
           <tr>
             <td>구매자명</td>
-            <td><input type='text' className='buyer' name='buyerName' onChange={(e) => {onChangeRegSale(e)}} /></td>
+            <td colSpan={3}><input type='text' className='buyer' name='buyerName' onChange={(e) => {onChangeRegSale(e)}} /></td>
           </tr>
           <tr>
             <td>색상</td>
             <td>
               <select name='color' className='color' onChange={(e) => {onChangeRegSale(e)}}>
-                <option>색상</option>
                 <option>블랙</option>
                 <option>화이트</option>
                 <option>실버</option>
@@ -71,7 +77,6 @@ const RegSalesInfo = () => {
             <td>
               {/* 모델 종류 들어올것 list사용 */}
               <select name='carNum' className='carNum' onChange={(e) => {onChangeRegSale(e)}}>
-                <option>모델명</option>
                 {
                   carName.map((car, i) => {
                     return(
@@ -84,7 +89,7 @@ const RegSalesInfo = () => {
           </tr>
           <tr>
             <td>연락처</td>
-            <td><input type='text' name='buyerTel' onChange={(e) => {onChangeRegSale(e)}} /></td>
+            <td colSpan={2}><input type='text' className='tel' name='buyerTel' onChange={(e) => {onChangeRegSale(e)}} /></td>
           </tr>
         </tbody>
       </table>

@@ -1,0 +1,53 @@
+
+.intro{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.main{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main > table{
+  width: 100%;
+}
+
+.main > table tr select{
+  text-align: center;
+  width: 100%;
+} 
+
+.btn-div{
+  text-align: end;
+}
+
+.btn-div > button{
+  padding: 10px 20px;
+}
+
+.car-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-list > table{
+  text-align: center;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+.car-list thead{
+  background-color: #eeeeee;
+  font-weight: bold;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+
+.car-list tbody > tr:nth-child(odd){
+  background-color: rgb(206, 206, 206);
+}

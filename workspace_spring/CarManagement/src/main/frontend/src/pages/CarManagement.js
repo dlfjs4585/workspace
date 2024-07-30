@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import '../carManagement.css';
 
 const CarManagement = () => {
 
+  const [cnt, setCnt] = useState([]);
   const [carList, setCarList] = useState([]);
   const [regCar, setRegCar] = useState({
     carName : '',
     carMoney : 0,
-    carManufacturer : ''
+    carManufacturer : '현대'
   });
 
   function onchangeCar(e){
@@ -21,6 +23,7 @@ const CarManagement = () => {
     axios.post('/carInfo/insert', regCar)
     .then((res) => {
       alert('차량이 등록되었습니다.')
+      setCnt(cnt + 1)
     })
     .catch((error) => {
       console.log(error)
@@ -35,19 +38,18 @@ const CarManagement = () => {
     .catch((error) => {
       console.log(error)
     })
-  }, []);
+  }, [cnt]);
 
   return (
-    <div>
-      <div>- 차량 등록</div>
-      <div>
+    <div className='contain'>
+      <div className='intro'>- 차량 등록</div>
+      <div className='main'>
         <table>
           <tbody>
             <tr>
               <td>제조사</td>
               <td>
                 <select name='carManufacturer' onChange={(e) => {onchangeCar(e)}}>
-                  <option>선택</option>
                   <option>현대</option>
                   <option>기아</option>
                   <option>쌍용</option>
@@ -60,11 +62,13 @@ const CarManagement = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className='btn-div'>
         <button type='button' onClick={(e) => {insertCar()}}>등록</button>
       </div>
       <div>
-        <div>-차량 목록</div>
-        <div>
+        <div className='intro'>-차량 목록</div>
+        <div className='car-list'>
           <table>
             <thead>
               <tr>

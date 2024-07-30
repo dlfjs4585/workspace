@@ -30,6 +30,7 @@
 
     <select id="getCarList" resultMap="sales">
         SELECT S.CAR_NUM
+            , SALE_NUM
             , BUYER_NAME
             , BUYER_TEL
             , SALE_DATE

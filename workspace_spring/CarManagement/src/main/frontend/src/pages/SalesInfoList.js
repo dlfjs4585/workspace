@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import '../salesInfoList.css';
 
 const SalesInfoList = () => {
 
@@ -20,16 +21,15 @@ const SalesInfoList = () => {
 
 
   return (
-    <div>
-      <table>
+    <div className='contain'>
+      <table className='sellInfo-table'>
         <thead>
           <tr>
-            <td>No</td>
-            <td>구매자정보</td>
-            <td>차량정보</td>
+            <td rowSpan={2}>No</td>
+            <td colSpan={4}>구매자정보</td>
+            <td colSpan={2}>차량정보</td>
           </tr>
           <tr>
-            <td></td>
             <td>구매자명</td>
             <td>연락처</td>
             <td>구매일</td>
@@ -43,13 +43,13 @@ const SalesInfoList = () => {
             carList.map((car, i) => {
               return(
                 <tr key={i}>
-                  <td>{car.carNum}</td>
+                  <td>{car.saleNum}</td>
                   <td>{car.buyerName}</td>
                   <td>{car.buyerTel}</td>
                   <td>{car.saleDate}</td>
                   <td>{car.color}</td>
-                  <td>{car.carName}</td>
-                  <td>{car.carMoney}</td>
+                  <td>{car.carVO.carName}</td>
+                  <td>{car.carVO.carMoney}</td>
                 </tr>
               )
             })

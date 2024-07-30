@@ -214,3 +214,16 @@ DELETE FROM TEST_ITEM WHERE ITEM_CODE = 1;
 SELECT * FROM TEST_ORDER;
 
 
+SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
+        FROM BOARD
+        WHERE MEM_ID LIKE '%a';
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
