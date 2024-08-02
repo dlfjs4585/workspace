@@ -20,10 +20,12 @@
             , MEM_ID
             , CREATE_DATE
         FROM BOARD
-        <if test=' searchValue != null and !searchValue.equals("")'>
+        ORDER BY BOARD_NUM DESC
+        LIMIT #{displayDataCnt} OFFSET ${displayDataCnt * (nowPage -1)};
+        <!--검색기능-->
+        <!--<if test=' searchValue != null and !searchValue.equals("")'>
             WHERE ${searchType} LIKE CONCAT("%", #{searchValue}, "%")
-        </if>
-        ORDER BY CREATE_DATE DESC;
+        </if>-->
     </select>
 
     <!--게시글 등록-->
@@ -62,6 +64,11 @@
         DELETE FROM BOARD
         WHERE BOARD_NUM = #{boardNum};
     </delete>
+
+    <select id="getBoardCnt" resultType="int">
+        SELECT COUNT(BOARD_NUM)
+        FROM BOARD;
+    </select>
 
 </mapper>
 

@@ -221,9 +221,37 @@ SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
         
         
         
-        
-        
-        
-        
-        
-        
+INSERT INTO board(
+   TITLE
+   , CONTENT
+   , MEM_ID
+) VALUES(
+   'test'
+   , '1234'
+   , 'admin'
+);
+
+SELECT *FROM board;
+
+SELECT BOARD_NUM
+   , TITLE
+   , MEM_ID
+   , CREATE_DATE
+FROM board
+LIMIT 5
+ORDER BY BOARD_NUM DESC;
+
+-- 테이블에 존재하는 데이터 갯수 조회
+-- COUNT() <- 안에 값은 PK를 넣어주는게 좋음
+SELECT COUNT(BOARD_NUM)
+FROM board;
+
+
+SELECT BOARD_NUM
+   , TITLE
+   , MEM_ID
+   , CREATE_DATE
+FROM BOARD
+ORDER BY BOARD_NUM DESC
+LIMIT 5 OFFSET (5-1);
+

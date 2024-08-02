@@ -1,6 +1,7 @@
 package com.green.Board.service;
 
 import com.green.Board.vo.BoardVO;
+import com.green.Board.vo.PageVO;
 import com.green.Board.vo.SearchVO;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface BoardService {
 
     //게시글 목록 조회
     // 제목, 작성자로 게시글 조회
-    List<BoardVO> getBoardList(SearchVO searchVO);
+    List<BoardVO> getBoardList(PageVO pageVO);
 
     // 게시글 등록
     void insertBoard(BoardVO boardVO);
@@ -22,5 +23,8 @@ public interface BoardService {
 
     // 게시글 삭제
     void deleteBoard(int boardNum);
+
+    // 전체 게시글 갯수 조회
+    int getBoardCnt();
 
 }

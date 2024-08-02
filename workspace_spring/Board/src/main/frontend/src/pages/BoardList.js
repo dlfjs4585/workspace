@@ -8,6 +8,10 @@ const BoardList = ({loginInfo}) => {
   //조회된 게시글 목록을 저장할 변수
   const [boardList, setBoardList] = useState([]);
   const navigate = useNavigate();
+  
+  // 페이지 정보 담은 변수
+  const [page, setPage] = useState({});
+
   // const [cnt , setCnt] = useState([]);
 
   // 검색 조건 저장할 변수 생성
@@ -25,9 +29,11 @@ const BoardList = ({loginInfo}) => {
 
   //게시글 목록 조회
   useEffect(() => {
-    boardApi.getBoardList(searchData)
+    boardApi.getBoardList(1)
     .then((res) => {
-      setBoardList(res.data);
+      setPage(res.data.pageInfo)
+
+      setBoardList(res.data.boardList);
     })
     .catch((error) => {
       alert('게시글 목록 조회 오류!');
@@ -37,10 +43,34 @@ const BoardList = ({loginInfo}) => {
 
   //제목, 작성자로 게시글 조회
   function selectSameData(){
-    boardApi.getBoardList(searchData)
+    boardApi.getBoardList()
     .then((res) => {
       // setCnt(cnt + 1)
       setBoardList(res.data)
+    })
+    .catch((error) => {})
+  }
+
+  // for문을 이용한 그림 그리기 예제
+  function drawPagination(){
+    const arr = [];
+    if(page.prev != false){
+      arr.push(<button type='button' onClick={(e) => {getList(page.beginPage - 1)}} >prev</button>)
+    }
+    for(let i = page.beginPage; i < page.endPage+1; i++){
+      arr.push(<button type='button'key={i} onClick={(e) => {getList(i)}} >{i}</button>);
+    }
+    if(page.next){
+      arr.push(<button type='button' onClick={(e) => {getList(page.endPage + 1)}} >next</button>)
+    }
+    return arr;
+  }
+
+  function getList(pageNo){
+    boardApi.getBoardList(pageNo)
+    .then((res) => {
+      setBoardList(res.data.boardList);
+      setPage(res.data.pageInfo);
     })
     .catch((error) => {})
   }
@@ -59,6 +89,7 @@ const BoardList = ({loginInfo}) => {
         <table>
           <colgroup>
             <col width='10%'/>
+            <col width='20%'/>
             <col width='*'/>
             <col width='20%'/>
             <col width='20%'/>
@@ -66,6 +97,7 @@ const BoardList = ({loginInfo}) => {
           <thead>
             <tr>
               <td>No</td>
+              <td>글 번호</td>
               <td>제 목</td>
               <td>작성자</td>
               <td>작성일</td>
@@ -77,6 +109,7 @@ const BoardList = ({loginInfo}) => {
                 return (
                   <tr key={i}>
                     <td>{boardList.length - i}</td>
+                    <td>{board.boardNum}</td>
                     <td><span onClick={(e) => {navigate(`/detailForm/${board.boardNum}`)}}>{board.title}</span></td>
                     <td>{board.memId}</td>
                     <td>{board.createDate}</td>
@@ -86,6 +119,11 @@ const BoardList = ({loginInfo}) => {
             }
           </tbody>
         </table>
+      </div>
+      <div>
+        {
+          drawPagination()
+        }
       </div>
       <div className='btn-div'>
         {

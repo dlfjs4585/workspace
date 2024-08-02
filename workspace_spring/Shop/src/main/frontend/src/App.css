@@ -1,0 +1,24 @@
+.container{
+  /* border: 1px solid black; */
+  width: 100vw;
+}
+
+.login-div{
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+
+.layout-div{
+  width: 86%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+
+table{
+  margin: auto;
+  margin-top: 20px;
+}
+
+input::placeholder{
+  text-align: center;
+}
+
+button{
+  color: white;
+  background-color: lightskyblue;
+}
+
+#join{
+  margin-top: 20px;
+  text-align: center;
+}
