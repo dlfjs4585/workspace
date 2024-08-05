@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import Modal from '../../common/Modal';
+import { joinValidate } from '../../validate/joinValidate';
 
 
 const Join = () => {
@@ -51,13 +52,14 @@ const Join = () => {
     for(let i = 0; i < document.querySelectorAll('.input').length; i++){
       if(document.querySelectorAll('.input')[i].value == ''){
         alert('아이디, 비밀번호, 이름은 필수입력입니다.')
-        return;
+        return ;
       }
-    } 
-
-    if(memberInfo.memPw != memberInfo.confirmPw){
-      alert('비밀번호가 일치하지 않습니다.')
-      return;
+    }
+    
+    // 유효성 검사 결과가 false이면 회원가입 로직 중지
+    if(!valid_result){
+      alert('입력 데이터를 확인하세요.');
+      return ;
     }
 
     axios.post('/api_member/join', memberInfo)
@@ -68,24 +70,45 @@ const Join = () => {
       console.log(error)
     })
   }
+  
+  const memId_valid_tag = useRef();
+  const memName_valid_tag = useRef();
+  const memPw_valid_tag = useRef();
+  const confirmPw_valid_tag = useRef();
+  const memTel_valid_tag = useRef();
+  const valid_tag = [memId_valid_tag
+                    , memPw_valid_tag
+                    , confirmPw_valid_tag
+                    , memName_valid_tag
+                    , memTel_valid_tag];
+
+  // 유효성 검사 결과를 저장하는 변수
+  const [valid_result, setValid_result] = useState(false);
 
   function onchangeJoinData(e){
 
     // useRef 콘솔에서 사용시 current필수
     // console.log(email_1.current.value);
     // console.log(email_2.current.value);
-
     // 이메일을 변경했으면.
-    setMemberInfo({
+
+    // 입력한 데이터
+    const newData = {
       ...memberInfo,
       [e.target.name] : e.target.name != 'memEmail' ? 
                                                     e.target.value 
                                                     :
                                                     email_1.current.value + email_2.current.value
-    })
+    };
+
+    // validation 처리
+    const result = joinValidate(newData, valid_tag, e.target.name);
+    setValid_result(result);
+    // 유효성 검사 끝난 데이터를 memberInfo에 저장
+    setMemberInfo(newData);
+
   }
-
-
+  
   // 아이디 중복
   function getId(){
     axios.get(`/api_member/getId/${memberInfo.memId}`)
@@ -97,7 +120,6 @@ const Join = () => {
       console.log(error)
     })
   }
-  
 
   // modal 랜더링 여부
   const[isShow, setIsShow] = useState(false); 
@@ -111,7 +133,7 @@ const Join = () => {
 
   // modal 확인 버튼 클릭시 로그인 화면으로 넘어가는 함수
   function goNavigate(){
-    navigate('loginForm')
+    navigate('/loginForm')
   }
 
   return (
@@ -127,24 +149,36 @@ const Join = () => {
             <td>아이디</td>
             <td>
               <input type='text' name='memId' className='form-control input' onChange={(e) => {onchangeJoinData(e)}} />
+              <div className='feedback' ref={memId_valid_tag}></div>
             </td>
             <td><button type='button' className='btn btn-primary' onClick={() => {getId()}}>중복 확인</button></td>
           </tr>
           <tr>
             <td>비밀번호</td>
-            <td><input type='password' name='memPw' className='form-control input' onChange={(e) => {onchangeJoinData(e)}} /></td>
+            <td>
+              <input type='password' name='memPw' className='form-control input' onChange={(e) => {onchangeJoinData(e)}} />
+              <div className='feedback' ref={memPw_valid_tag}></div>
+            </td>
           </tr>
           <tr>
             <td>비밀번호 확인</td>
-            <td><input type='password' name='confirmPw' className='form-control' onChange={(e) => {onchangeJoinData(e)}} /></td>
+            <td>
+              <input type='password' name='confirmPw' className='form-control' onChange={(e) => {onchangeJoinData(e)}} />
+              <div className='feedback' ref={confirmPw_valid_tag}></div>
+            </td>
           </tr>
           <tr>
             <td>이름</td>
-            <td><input type='text' name='memName' className='form-control input'onChange={(e) => {onchangeJoinData(e)}} /></td>
+            <td>
+              <input type='text' name='memName' className='form-control input'onChange={(e) => {onchangeJoinData(e)}} />
+              <div className='feedback' ref={memName_valid_tag}></div>
+            </td>
           </tr>
           <tr>
             <td>연락처</td>
-            <td><input type='text' name='memTel' className='form-control'  placeholder='숫자만 입력하세요.' onChange={(e) => {onchangeJoinData(e)}} /></td>
+            <td><input type='text' name='memTel' className='form-control'  placeholder='숫자만 입력하세요.' onChange={(e) => {onchangeJoinData(e)}} />
+            <div className='feedback' ref={memTel_valid_tag}></div>
+            </td>
           </tr>
           <tr>
             <td rowSpan={3}>주소</td>

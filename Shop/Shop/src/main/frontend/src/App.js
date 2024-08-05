@@ -15,8 +15,8 @@ function App() {
     <div className="container">
       <div className='login-div'>
         <ul className='header-menu'>
-          <li><span  onClick={() => {navigate('loginForm')}}>Login</span></li>
-          <li><span  onClick={() => {navigate('joinForm')}}>Join</span></li>
+          <li><span  onClick={() => {navigate('/loginForm')}}>Login</span></li>
+          <li><span  onClick={() => {navigate('/joinForm')}}>Join</span></li>
         </ul>
         <div className='banner'>
           <div>

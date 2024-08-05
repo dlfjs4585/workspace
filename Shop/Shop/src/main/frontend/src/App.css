@@ -197,3 +197,21 @@
     transform: translateY(-50px);
   }
 }
+
+/* validation 디자인 */
+.feedback{
+  font-size: 0.7rem;
+  margin-top: 4px;
+  /* display: none; */
+  visibility: hidden;
+}
+
+.feedback.error{
+  color: red;
+  visibility: visible;
+}
+
+.feedback.good{
+  color: rgb(99, 197, 0);
+  visibility: visible;
+}
