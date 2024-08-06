@@ -12,5 +12,6 @@ public interface MemberService {
     // 사용 가능 : true, 사용 불가능 : false
     boolean isEnableId(String memId);
 
+    // 로그인 기능
     MemberVO login(MemberVO memberVO);
 }

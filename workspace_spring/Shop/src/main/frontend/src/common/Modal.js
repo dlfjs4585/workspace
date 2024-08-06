@@ -1,5 +1,8 @@
 import React, { useRef } from 'react'
 
+// content : 모달에서 보여지는 내용
+// setIsShow : 모달을 닫는 코드
+// clickCloseBtn : 모달의 확인 버튼 클릭 시 실행할 코드
 const Modal = ({content, setIsShow, clickCloseBtn}) => {
 
   const modalContainer = useRef();

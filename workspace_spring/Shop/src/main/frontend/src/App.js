@@ -14,22 +14,29 @@ function App() {
   return (
     <div className="container">
       <div className='login-div'>
-        유저, 관리자 공용
-        <div>
-          <span onClick={() => {navigate('loginForm')}}>Login</span>
-          <span onClick={() => {navigate('joinForm')}}>Join</span>
+        <ul className='header-menu'>
+          <li><span  onClick={() => {navigate('/loginForm')}}>Login</span></li>
+          <li><span  onClick={() => {navigate('/joinForm')}}>Join</span></li>
+        </ul>
+        <div className='banner'>
+          <div>
+            <img className='banner-img' src='http://localhost:8080/images/book_banner.PNG' />
+          </div>
+          <div className='title-div'>BOOK SHOP</div>
         </div>
       </div>
       <div className='layout-div'>
         <Routes>
           {/* 일반 유저용 */}
           <Route path='/' element={ <UserLayout /> }>
+
             {/* 상품 목록 화면 */}
             <Route path='' element={ <div>상품목록화면</div> }/>
 
-            <Route path='test1' element={<div>1번화면</div>} />
-            <Route path='test2' element={<div>2번화면</div>} />
+            {/* 회원 가입 화면 */}
             <Route path='joinForm' element={<Join />} />
+
+            {/* 로그인 페이지 */}
             <Route path='loginForm' element={<Login />} />
           </Route>
           {/* 관리자용 */}

@@ -4,12 +4,12 @@ package com.green.Shop.member.controller;
 import com.green.Shop.member.service.MemberService;
 import com.green.Shop.member.vo.MemberVO;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api_member")
+@Slf4j
 public class MemberController {
     @Resource(name = "memberService")
     private MemberService memberService;
@@ -27,7 +27,7 @@ public class MemberController {
         return result;
     }
 
-    // 로그인
+    // 로그인 기능
     @PostMapping("/login")
     public MemberVO login(@RequestBody MemberVO memberVO){
         MemberVO member = memberService.login(memberVO);

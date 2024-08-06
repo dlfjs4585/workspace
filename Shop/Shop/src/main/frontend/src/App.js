@@ -5,18 +5,49 @@ import UserLayout from './pages/user/UserLayout';
 import AdminLayout from './pages/admin/AdminLayout';
 import Join from './pages/user/Join';
 import Login from './pages/user/Login';
+import ItemList from './pages/user/ItemList';
+import { useEffect, useState } from 'react';
+import RegItem from './pages/admin/RegItem';
 
 function App() {
 
   const navigate = useNavigate()
 
+  const [loginInfo, setLoginInfo] = useState({});
+
+  useEffect(() => {
+    const loginDataString = window.sessionStorage.getItem('loginInfo');
+
+    if(loginDataString != null){
+      const loginData = JSON.parse(loginDataString);
+      setLoginInfo(loginData);
+    }
+  }, []);
 
   return (
     <div className="container">
       <div className='login-div'>
         <ul className='header-menu'>
-          <li><span  onClick={() => {navigate('/loginForm')}}>Login</span></li>
-          <li><span  onClick={() => {navigate('/joinForm')}}>Join</span></li>
+          {
+            loginInfo.memId == null
+            ?
+            <>
+              <li><span  onClick={() => {navigate('/loginForm')}}>Login</span></li>
+              <li><span  onClick={() => {navigate('/joinForm')}}>Join</span></li>
+            </>
+            :
+            <div>
+              {loginInfo.memName}님 반갑습니다.
+              <span onClick={(e) => {
+                window.sessionStorage.removeItem('loginInfo');
+                setLoginInfo({});
+                // 모달 로그아웃 만들어야함
+                alert('로그아웃');
+                navigate('/');
+              }}>Logout</span>
+            </div>
+          }
+          
         </ul>
         <div className='banner'>
           <div>
@@ -29,17 +60,21 @@ function App() {
         <Routes>
           {/* 일반 유저용 */}
           <Route path='/' element={ <UserLayout /> }>
-            {/* 상품 목록 화면 */}
-            <Route path='' element={ <div>상품목록화면</div> }/>
 
-            <Route path='test1' element={<div>1번화면</div>} />
-            <Route path='test2' element={<div>2번화면</div>} />
+            {/* 상품 리스트 페이지 */}
+            <Route path='' element={<ItemList loginInfo={loginInfo} />} />
+
+            {/* 회원 가입 화면 */}
             <Route path='joinForm' element={<Join />} />
-            <Route path='loginForm' element={<Login />} />
+
+            {/* 로그인 페이지 */}
+            <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} />} />
+
           </Route>
+
           {/* 관리자용 */}
           <Route path='/admin' element={ <AdminLayout /> }>
-            <Route path='test1' element={ <div>상품등록페이지</div> }/>
+            <Route path='regItem' element={ <RegItem />} />
           </Route>
         </Routes>
       </div>

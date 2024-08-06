@@ -9,6 +9,9 @@ import { joinValidate } from '../../validate/joinValidate';
 
 const Join = () => {
 
+  // id 중복 체크 여부를 저장할 변수
+  const [isCheckId, setIsCheckId] = useState(false);
+
   const navigate = useNavigate();
 
   // daum 주소 api 팝업창을 띄우기 위한 함수 선언
@@ -48,18 +51,16 @@ const Join = () => {
   });
 
   function joinMember(){
-
-    for(let i = 0; i < document.querySelectorAll('.input').length; i++){
-      if(document.querySelectorAll('.input')[i].value == ''){
-        alert('아이디, 비밀번호, 이름은 필수입력입니다.')
-        return ;
-      }
-    }
-    
     // 유효성 검사 결과가 false이면 회원가입 로직 중지
     if(!valid_result){
       alert('입력 데이터를 확인하세요.');
       return ;
+    }
+
+    // id 중복 검사를 했는지 확인
+    if(!isCheckId){
+      alert('ID 중복 검사 후 가입 하세요.');
+      return;
     }
 
     axios.post('/api_member/join', memberInfo)
@@ -110,11 +111,11 @@ const Join = () => {
   }
   
   // 아이디 중복
-  function getId(){
-    axios.get(`/api_member/getId/${memberInfo.memId}`)
+  function isEnableId(){
+    axios.get(`/api_member/isEnableId/${memberInfo.memId}`)
     .then((res) => {
-      let result = res.data;
-      alert(result ? '아이디가 중복입니다.' : '사용 가능한 아이디입니다.')  
+      alert(res.data ? '사용 가능한 아이디입니다.' : '중복된 아이디입니다.');
+      setIsCheckId(res.data);
     })
     .catch((error) => {
       console.log(error)
@@ -132,8 +133,8 @@ const Join = () => {
   }
 
   // modal 확인 버튼 클릭시 로그인 화면으로 넘어가는 함수
-  function goNavigate(){
-    navigate('/loginForm')
+  function onclickModalBtn(){
+    navigate('/loginForm');
   }
 
   return (
@@ -148,15 +149,22 @@ const Join = () => {
           <tr>
             <td>아이디</td>
             <td>
-              <input type='text' name='memId' className='form-control input' onChange={(e) => {onchangeJoinData(e)}} />
+              <input type='text' name='memId' className='form-control input' onChange={(e) => 
+                {
+                  setIsCheckId(false);
+                  onchangeJoinData(e);
+                }} />
               <div className='feedback' ref={memId_valid_tag}></div>
             </td>
-            <td><button type='button' className='btn btn-primary' onClick={() => {getId()}}>중복 확인</button></td>
+            <td><button type='button' className='btn btn-primary' onClick={() => {isEnableId()}}>중복 확인</button></td>
           </tr>
           <tr>
             <td>비밀번호</td>
             <td>
-              <input type='password' name='memPw' className='form-control input' onChange={(e) => {onchangeJoinData(e)}} />
+              <input type='password' name='memPw' className='form-control input' onChange={(e) => 
+              {
+                onchangeJoinData(e);
+              }} />
               <div className='feedback' ref={memPw_valid_tag}></div>
             </td>
           </tr>
@@ -206,7 +214,7 @@ const Join = () => {
       <div className='btn-div'>
         <button type='button' className='btn btn-primary' onClick={(e) => {joinMember()}}>회원가입</button>
         {
-        isShow ? <Modal goNavigate={goNavigate} content={setModalContent} setIsShow={setIsShow} /> : null
+        isShow ? <Modal clickCloseBtn={onclickModalBtn} content={setModalContent} setIsShow={setIsShow} /> : null
         }
       </div>
     </div>

@@ -28,6 +28,11 @@ CREATE TABLE ITEM_CATEGORY (
 	, CATE_NAME VARCHAR(50) NOT NULL UNIQUE
 );
 
+-- 카테고리 데이터
+INSERT INTO item_category VALUES(1, '인터넷/IT');
+INSERT INTO item_category VALUES(2, '소설/에세이');
+INSERT INTO item_category VALUES(3, '자기개발');
+
 -- 3. 상품 정보 테이블
 -- ITEM_STATUS(상품 상태) : (FOR_SALE)판매중, SOLD_OUT(매진)
 CREATE TABLE SHOP_ITEM (
@@ -42,7 +47,9 @@ CREATE TABLE SHOP_ITEM (
 
 
 
-SELECT * FROM SHOP_MEMBER;
+SELECT * FROM shop_member;
+DELETE FROM shop_member
+WHERE MEM_ID = 'javaaaa';
 SELECT * FROM ITEM_CATEGORY;
 
 SELECT * FROM SHOP_ITEM;
@@ -52,6 +59,26 @@ SELECT MEM_ID
 FROM shop_member
 WHERE MEM_ID = 'java';
 
-
+INSERT INTO shop_member(
+	MEM_ID
+	, MEM_PW
+	, MEM_NAME
+	, MEM_TEL
+	, POST
+	, MEM_ADDR
+	, ADDR_DETAIL
+	, MEM_EMAIL
+	, MEM_ROLE
+) VALUES(
+	'admin'
+	, 'asd123'
+	, '관리자'
+	, '010-1234-1233'
+	, '우편번호'
+	, '주소'
+	, '상세주소'
+	, '관리자@gmail.com'
+	, 'ADMIN'
+);
 
 

@@ -1,19 +1,24 @@
-
-table{
-  margin: auto;
-  margin-top: 20px;
+.join-div{
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(230, 230, 230, 0.1);
+  box-shadow: 3px 3px 6px #dddddd;
 }
 
-input::placeholder{
-  text-align: center;
+.join-table{
+  width: 100%;
 }
 
-button{
-  color: white;
-  background-color: lightskyblue;
+.join-table td{
+  padding: 6px;
 }
 
-#join{
-  margin-top: 20px;
-  text-align: center;
+.join-table tr > td:nth-child(1){
+  text-align: right;
+}
+
+.select-form{
+  width: 40%;
 }

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
-<mapper namespace="shopMemberMapper">
-    <resultMap id="member" type="com.green.Shop.member.vo.ShopMemberVO">
+<mapper namespace="memberMapper">
+	<resultMap id="member" type="com.green.Shop.member.vo.MemberVO">
         <id column="MEM_ID" property="memId" />
         <result column="MEM_PW" property="memPw" />
         <result column="MEM_NAME" property="memName" />
@@ -15,7 +15,7 @@
         <result column="MEM_ROLE" property="memRole" />
     </resultMap>
 
-    <insert id="insertMember">
+    <insert id="join">
         INSERT INTO SHOP_MEMBER(
             MEM_ID
             , MEM_PW
@@ -37,11 +37,19 @@
         );
     </insert>
 
-    <select id="getId" resultMap="member">
+    <select id="isEnableId" resultType="String">
         SELECT MEM_ID
-        FROM SHOP_MEMBER;
+        FROM SHOP_MEMBER
+        WHERE MEM_ID = #{memId};
     </select>
-	
+
+    <select id="login" resultMap="member">
+        SELECT MEM_ID, MEM_NAME, MEM_ROLE
+        FROM SHOP_MEMBER
+        WHERE MEM_ID = #{memId}
+        AND MEM_PW = #{memPw};
+    </select>
+
 </mapper>
 
 

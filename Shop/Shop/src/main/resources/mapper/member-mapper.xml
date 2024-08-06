@@ -37,10 +37,19 @@
         );
     </insert>
 
-    <select id="getId" resultMap="member">
+    <select id="isEnableId" resultType="String">
         SELECT MEM_ID
         FROM SHOP_MEMBER
         WHERE MEM_ID = #{memId};
+    </select>
+
+    <select id="login" resultMap="member" >
+        SELECT MEM_ID
+            , MEM_NAME
+            , MEM_ROLE
+        FROM SHOP_MEMBER
+        WHERE MEM_ID = #{memId}
+        AND MEM_PW = #{memPw};
     </select>
 
 </mapper>
