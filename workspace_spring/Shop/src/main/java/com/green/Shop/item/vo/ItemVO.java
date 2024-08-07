@@ -1,4 +1,4 @@
-package com.green.Shop.member.vo;
+package com.green.Shop.item.vo;
 
 import lombok.Data;
 

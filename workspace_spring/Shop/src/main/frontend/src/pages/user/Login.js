@@ -5,7 +5,7 @@ import Modal from '../../common/Modal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setLoginInfo}) => {
   const navigate = useNavigate();
 
   // Login버튼을 클릭 시 화면에 보여지는 모달 창의 상태
@@ -30,14 +30,6 @@ const Login = () => {
     memRole : ''
   });
 
-  // 입력한 id, pw를 loginData에 저장하는 함수(입력할 떄마다 실행)
-  function changeLoginData(e){
-    setLoginData({
-      ...loginData,
-      [e.target.name] : e.target.value
-    });
-  }
-
   // 로그인 버튼 클릭시 실행
   function login(){
     // id, pw 입력 여부 확인
@@ -59,24 +51,35 @@ const Login = () => {
       if(res.data != ''){
         setAfterLoginModal(true)
         setIsLoginSuccess(true)
+        // 객체 -> 문자열로 변환한 데이터를 JSON 데이터로 부른다.
+        const loginInfo = {
+          memId : res.data.memId,
+          memName : res.data.memName,
+          memRole : res.data.memRole
+        };
+        // 로그인 정보를 가진 변수를 문자열 형태로 변환(sessionStorage에는 문자열 밖에 들어가지 못하기 때문)
+        window.sessionStorage.setItem('loginInfo',JSON.stringify(loginInfo));
+
+        // 로그인 정보를 저장하기 위해 만든 state변수 loginInfo(App.js에 생성)에 로그인 정보 저장
+        setLoginInfo(loginInfo);
       }
       // 로그인 실패시
       else{
         setAfterLoginModal(true)
         setIsLoginSuccess(false)
       }
-      // 객체 -> 문자열로 변환한 데이터를 JSON 데이터로 부른다.
-      const loginInfo = {
-        memId : res.data.memId,
-        memName : res.data.memName,
-        memRole : res.data.memRole
-      };
-      // 로그인 정보를 가진 변수를 문자열 형태로 변환(sessionStorage에는 문자열 밖에 들어가지 못하기 때문)
-      window.sessionStorage.setItem('loginInfo',JSON.stringify(loginInfo))
     })
     .catch((error) => {
       console.log(error)
     })
+  }
+
+  // 입력한 id, pw를 loginData에 저장하는 함수(입력할 떄마다 실행)
+  function changeLoginData(e){
+    setLoginData({
+      ...loginData,
+      [e.target.name] : e.target.value
+    });
   }
 
   // login 쿼리 실행 후 띄는 모달 안의 내용
@@ -102,7 +105,7 @@ const Login = () => {
         navigate('/')
       }
       else{
-        navigate('/admin')
+        navigate('/admin/regItem')
       }
     } 
     else{

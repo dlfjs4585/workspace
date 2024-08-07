@@ -60,10 +60,8 @@ function App() {
         <Routes>
           {/* 일반 유저용 */}
           <Route path='/' element={ <UserLayout /> }>
-
             {/* 상품 리스트 페이지 */}
-            <Route path='' element={<ItemList loginInfo={loginInfo} />} />
-
+            <Route path='itemList' element={<ItemList/>} />
             {/* 회원 가입 화면 */}
             <Route path='joinForm' element={<Join />} />
 

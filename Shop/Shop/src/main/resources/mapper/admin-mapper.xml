@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="adminMapper">
+    <resultMap id="item" type="com.green.Shop.item.vo.ItemVO">
+        <id column="ITEM_CODE"          property="itemCode" />
+        <result column="ITEM_NAME"      property="itemName" />
+        <result column="ITEM_PRICE"     property="itemPrice" />
+        <result column="ITEM_INTRO"     property="itemIntro" />
+        <result column="ITEM_STOCK"     property="itemStock" />
+        <result column="ITEM_STATUS"    property="itemStatus" />
+        <result column="CATE_CODE"      property="cateCode" />
+        <collection property="categoryVO" resultMap="itemMapper.category" />
+    </resultMap>
+
+    <select id="getCategoryList" resultMap="itemMapper.category">
+        SELECT CATE_CODE, CATE_NAME
+        FROM ITEM_CATEGORY;
+    </select>
+
+    <insert id="insertItem">
+        INSERT INTO SHOP_ITEM(
+            ITEM_NAME
+            ,   ITEM_PRICE
+            ,   ITEM_INTRO
+            ,   CATE_CODE
+        ) VALUES(
+            #{itemName}
+            ,   #{itemPrice}
+            ,   #{itemIntro}
+            ,   #{cateCode}
+        );
+    </insert>
+
+    <select id="getItemList" resultMap="item">
+        SELECT ITEM_CODE
+            , ITEM_NAME
+            , ITEM_PRICE
+            , ITEM_INTRO
+            , ITEM_STOCK
+            , ITEM_STATUS
+            , CATE_CODE
+        FROM SHOP_ITEM
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

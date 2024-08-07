@@ -1,0 +1,9 @@
+
+.category-div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}

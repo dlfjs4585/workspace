@@ -1,5 +1,5 @@
 
-import './Login,css'
+import './Login.css';
 import axios from 'axios';
 import React, { useState } from 'react'
 import Modal from '../../common/Modal';
@@ -52,20 +52,21 @@ const Login = ({setLoginInfo}) => {
       if(res.data != ''){
         setAfterLoginModal(true)
         setIsLoginSuccess(true)
+        // 객체 -> 문자열로 변환한 데이터를 JSON 데이터로 부른다.
+        const loginInfo ={
+          memId : res.data.memId,
+          memName : res.data.memName,
+          memRole : res.data.memRole
+        };
+        // 로그인 정보를 가진 변수를 문자열 형태로 변환(sessionStorage에는 문자열 밖에 들어가지 못하기 때문)
+        window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
+        setLoginInfo(loginInfo);
       }
       // 로그인 실패시
       else{
         setAfterLoginModal(true)
         setIsLoginSuccess(false)
       }
-
-      const loginInfo ={
-        memId : res.data.memId,
-        memName : res.data.memName,
-        memRole : res.data.memRole
-      };
-      window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
-      setLoginInfo(loginInfo);
     })
     .catch((error) => {
       console.log(error)
@@ -99,10 +100,10 @@ const Login = ({setLoginInfo}) => {
     if(isLoginSuccess){
       // 로그인 성공 시 상품 목록 페이지로 이동
       if(loginMemberInfo.memRole == 'USER'){
-        navigate('/')
+        navigate('/itemList')
       }
       else{
-        navigate('/admin')
+        navigate('/admin/regItem')
       }
     } 
     else{
