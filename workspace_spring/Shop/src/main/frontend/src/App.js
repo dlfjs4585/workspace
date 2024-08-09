@@ -8,6 +8,7 @@ import Login from './pages/user/Login';
 import { useEffect, useState } from 'react';
 import ItemList from './pages/user/ItemList';
 import RegItem from './pages/admin/RegItem';
+import ItemDetail from './pages/user/ItemDetail';
 
 function App() {
 
@@ -41,7 +42,7 @@ function App() {
 
   // 빈 객체인지 확인하는 코드
   // Object.keys() -> 객체 안의 모든 키 값을 가져옴
-  console.log(Object.keys(loginInfo).length);
+  // console.log(Object.keys(loginInfo).length);
 
 
   return (
@@ -91,6 +92,10 @@ function App() {
             {/* 로그인 페이지 */}
             {/* loginInfo 넘겨서 다시 memRole 다시 만들기 */}
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} />} />
+
+            {/* 상품 상세 화면 */}
+            <Route path='detail/:itemCode' element={<ItemDetail />} />
+
           </Route>
           {/* 관리자용 */}
           <Route path='/admin' element={ <AdminLayout /> }>

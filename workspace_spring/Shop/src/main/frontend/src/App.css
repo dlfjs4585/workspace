@@ -1,6 +1,6 @@
 .container{
   /* border: 1px solid black; */
-  width: 100vw;
+  width: 100%;
 }
 
 .login-div{
@@ -196,6 +196,26 @@
   to{
     transform: translateY(-50px);
   }
+}
+
+.user-menu-div{
+  /* background-color: #C5DEC7; */
+  color: gray;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.user-menu-div > .menu-ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-menu-div > .menu-ul > li{
+  width: 160px;
+  /* border: 1px solid black; */
+  text-align: center;
 }
 
 /* validation 디자인 */

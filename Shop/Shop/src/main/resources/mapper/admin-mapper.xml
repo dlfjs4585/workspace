@@ -16,7 +16,8 @@
 
     <select id="getCategoryList" resultMap="itemMapper.category">
         SELECT CATE_CODE, CATE_NAME
-        FROM ITEM_CATEGORY;
+        FROM ITEM_CATEGORY
+        ORDER BY CATE_CODE ASC;
     </select>
 
     <insert id="insertItem">

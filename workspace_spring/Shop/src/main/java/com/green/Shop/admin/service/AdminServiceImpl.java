@@ -1,6 +1,7 @@
 package com.green.Shop.admin.service;
 
 import com.green.Shop.item.vo.CategoryVO;
+import com.green.Shop.item.vo.ItemVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,23 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public List<CategoryVO> getCategoryList() {
         return sqlSession.selectList("adminMapper.getCategoryList");
+    }
+
+    // 상품 등록
+    @Override
+    public void insertItem(ItemVO itemVO) {
+        sqlSession.insert("adminMapper.insertItem", itemVO);
+    }
+
+    // 상품 등록 할 때 같이 실행 될 수 있게 만든다
+    @Override
+    public void insertImgs(ItemVO itemVO) {
+        sqlSession.insert("adminMapper.insertImgs", itemVO);
+    }
+
+    // 다음에 들어갈 item_code 조회
+    @Override
+    public int getNextItemCode() {
+        return sqlSession.selectOne("adminMapper.getNextItemCode");
     }
 }

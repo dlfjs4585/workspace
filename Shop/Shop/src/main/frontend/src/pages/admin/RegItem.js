@@ -8,9 +8,9 @@ const RegItem = () => {
   const [categoryList, setCategoryList] = useState([]);
 
   const [itemInfo, setItemInfo] = useState({
-    cateCode : 2 ,
+    cateCode : 1 ,
     itemName : '',
-    itemPrice : 0,
+    itemPrice : '',
     itemIntro : ''
   });
 
