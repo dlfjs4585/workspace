@@ -9,6 +9,11 @@ import { useEffect, useState } from 'react';
 import ItemList from './pages/user/ItemList';
 import RegItem from './pages/admin/RegItem';
 import ItemDetail from './pages/user/ItemDetail';
+import ItemManage from './pages/admin/ItemManage';
+import CategoryManage from './pages/admin/CategoryManage';
+import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
+import SearchUser from './pages/admin/SearchUser';
+import RecordOfMonth from './pages/admin/RecordOfMonth';
 
 function App() {
 
@@ -99,7 +104,12 @@ function App() {
           </Route>
           {/* 관리자용 */}
           <Route path='/admin' element={ <AdminLayout /> }>
+            <Route path='itemManage' element={<ItemManage />} />
             <Route path='regItem' element={ <RegItem /> }/>
+            <Route path='categoryManage' element={<CategoryManage />} />
+            <Route path='saleHistoryOfMonth' element={<SaleHistoryOfMonth />} />
+            <Route path='searchUser' element={<SearchUser />} />
+            <Route path='recordOfMonth' element={<RecordOfMonth />} />
           </Route>
         </Routes>
       </div>

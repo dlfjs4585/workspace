@@ -105,7 +105,7 @@ const Login = ({setLoginInfo}) => {
         navigate('/')
       }
       else{
-        navigate('/admin/regItem')
+        navigate('/admin/itemManage')
       }
     } 
     else{

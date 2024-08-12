@@ -54,6 +54,62 @@
   cursor: pointer;
 }
 
+.menu-div{
+  color: gray;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.menu-div > .menu-ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.menu-div > .menu-ul > li{
+  width: 160px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.menu-div > .menu-ul > li > span{
+  cursor: pointer;
+}
+
+.menu-div > .menu-ul > li > span:hover{
+  color: black;
+}
+
+/* 사이드 바 디자인 */
+.side-menu-div{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.side-menu-ul{
+  /* background-color: rgba(230, 230, 230, 0.1); */
+  box-shadow: 2px 2px 4px #dddddd;
+  width: 250px;
+}
+
+.side-menu-ul > li{
+  padding: 20px 16px;
+  border-bottom: 2px solid #003675;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.side-menu-ul > li:hover{
+  background-color: #eeeeee;
+}
+
+.bi-chevron-right{
+  font-size: 0.8rem;
+}
+
 /* 공통 디자인 */
 
 /* input 태그 */
@@ -196,26 +252,6 @@
   to{
     transform: translateY(-50px);
   }
-}
-
-.user-menu-div{
-  /* background-color: #C5DEC7; */
-  color: gray;
-  font-weight: bold;
-  padding: 20px;
-}
-
-.user-menu-div > .menu-ul{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-
-.user-menu-div > .menu-ul > li{
-  width: 160px;
-  /* border: 1px solid black; */
-  text-align: center;
 }
 
 /* validation 디자인 */
