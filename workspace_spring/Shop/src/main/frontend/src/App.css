@@ -54,6 +54,10 @@
   cursor: pointer;
 }
 
+.header-menu > div > span{
+  margin-left: 20px;
+}
+
 .menu-div{
   color: gray;
   font-weight: bold;

@@ -14,6 +14,7 @@ import CategoryManage from './pages/admin/CategoryManage';
 import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
 import SearchUser from './pages/admin/SearchUser';
 import RecordOfMonth from './pages/admin/RecordOfMonth';
+import CartList from './pages/user/CartList';
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
             </>
             :
             <div>
-              {loginInfo.memId}님 반갑습니다.
+              {loginInfo.memId}님 반갑습니다
               <span onClick={(e) => {
                 // 세션에 저장된 로그인 정보 삭제
                 window.sessionStorage.removeItem('loginInfo')
@@ -100,6 +101,9 @@ function App() {
 
             {/* 상품 상세 화면 */}
             <Route path='detail/:itemCode' element={<ItemDetail />} />
+
+            {/* 장바구니 화면 */}
+            <Route path='cartList' element={ <CartList /> } />
 
           </Route>
           {/* 관리자용 */}

@@ -27,6 +27,16 @@
         <collection property="imgList" ofType="com.green.Shop.item.vo.ImgVO" resultMap="img" />
     </resultMap>
 
+    <resultMap id="cart" type="com.green.Shop.item.vo.CartVO" >
+        <id column="CART_CODE" property="cartCode" />
+        <result column="CART_CNT" property="cartCnt" />
+        <result column="ITEM_CODE" property="itemCode" />
+        <result column="MEM_ID" property="memId" />
+        <result column="CART_DATE" property="cartDate" />
+        <collection property="itemList" ofType="com.green.Shop.item.vo.ItemVO" resultMap="item" />
+        <collection property="imgList" ofType="com.green.Shop.item.vo.ImgVO" resultMap="img" />
+    </resultMap>
+
     <!-- 상품목록 조회 -->
     <!-- 조회 시 조인, 서브쿼리가 사용되면 조회한 데이터를 자바로 가져오기 위해 -->
     <!-- 정의한 resultMap 에 association 혹은 collection 을 추가해야 함 -->
@@ -59,6 +69,31 @@
         FROM SHOP_ITEM S, ITEM_IMG I
         WHERE S.ITEM_CODE = I.ITEM_CODE
         AND S.ITEM_CODE = #{itemCode};
+    </select>
+
+    <insert id="insertCart" >
+        INSERT INTO SHOP_CART(
+            CART_CNT
+            , ITEM_CODE
+            , MEM_ID
+        ) VALUES(
+            #{cartCnt}
+            , #{itemCode}
+            , #{memId}
+        );
+    </insert>
+
+    <select id="getCartList" resultMap="cart" >
+        SELECT CART_CODE
+            , img.ATTACHED_FILE_NAME
+            , ITEM_NAME
+            , ITEM_PRICE
+            , CART_CNT
+            , CART_DATE
+        FROM SHOP_ITEM S, ITEM_IMG I, SHOP_CART C
+        WHERE S.ITEM_CODE = I.ITEM_CODE
+        AND S.ITEM_CODE = C.ITEM_CODE
+        AND MEM_ID = #{memId}
     </select>
 
 </mapper>

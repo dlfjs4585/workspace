@@ -1,5 +1,6 @@
 package com.green.Shop.item.service;
 
+import com.green.Shop.item.vo.CartVO;
 import com.green.Shop.item.vo.ItemVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,15 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public ItemVO getItemDetail(int itemCode) {
         return sqlSession.selectOne("itemMapper.getItemDetail", itemCode);
+    }
+
+    @Override
+    public void insertCart(CartVO cartVO) {
+        sqlSession.insert("itemMapper.insertCart", cartVO);
+    }
+
+    @Override
+    public List<CartVO> getCartList() {
+        return sqlSession.selectList("itemMapper.getCartList");
     }
 }
