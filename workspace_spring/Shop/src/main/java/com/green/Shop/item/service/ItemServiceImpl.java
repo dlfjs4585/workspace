@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public List<CartVO> getCartList() {
-        return sqlSession.selectList("itemMapper.getCartList");
+    public List<CartVO> getCartList(String memId) {
+        return sqlSession.selectList("itemMapper.getCartList", memId);
     }
 }

@@ -103,7 +103,7 @@ function App() {
             <Route path='detail/:itemCode' element={<ItemDetail />} />
 
             {/* 장바구니 화면 */}
-            <Route path='cartList' element={ <CartList /> } />
+            <Route path='cartList/:memId' element={ <CartList /> } />
 
           </Route>
           {/* 관리자용 */}

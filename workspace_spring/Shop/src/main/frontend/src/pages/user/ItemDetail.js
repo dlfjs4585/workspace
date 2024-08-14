@@ -49,7 +49,7 @@ const ItemDetail = () => {
   function goCart(){
     axios.post('/api_item/insertCart', cartItem)
     .then((res) => {
-      navigate(`/cartList`);
+      navigate(`/cartList/${cartItem.memId}`);
     })
     .catch((error) => {console.log(error)})
   }
@@ -69,7 +69,7 @@ const ItemDetail = () => {
         <div className='img'>
           <img src={img(0)} />
         </div>
-        <div>
+        <div className='item-info-detail'>
           <table>
             <tbody>
               <tr>
@@ -82,14 +82,20 @@ const ItemDetail = () => {
               </tr>
               <tr>
                 <td>수량</td>
-                <td><input type='number' name='cartCnt' value={item.carCnt} min={1} onChange={(e) => {
-                                                                                                        const newCarCnt = Number(e.target.value); // 입력된 값을 숫자로 변환
-                                                                                                        setItem({
-                                                                                                          ...item,
-                                                                                                          carCnt: newCarCnt // item의 carCnt를 업데이트
-                                                                                                        });
-                                                                                                        onChangeCartData(e); // cartItem의 cartCnt도 업데이트
-                }} /></td>
+                <td>
+                  <input type='number'
+                            name='cartCnt'
+                            value={item.carCnt}
+                            min={1}
+                            onChange={(e) => {
+                                              const newCarCnt = Number(e.target.value); // 입력된 값을 숫자로 변환
+                                              setItem({
+                                                ...item,
+                                                carCnt: newCarCnt // item의 carCnt를 업데이트
+                                              });
+                                              onChangeCartData(e); // cartItem의 cartCnt도 업데이트
+                                              }} />
+                </td>
               </tr>
               <tr>
                 <td>총 가격</td>
@@ -97,8 +103,10 @@ const ItemDetail = () => {
               </tr>
             </tbody>
           </table>
-          <button type='button' className='btn btn-primary' >구매하기</button>
-          <button type='button' className='btn btn-primary' onClick={() => {goCart()}} >장바구니에 담기</button>
+          <div className='detail-button-div'>
+            <button type='button' className='btn btn-primary' >구매하기</button>
+            <button type='button' className='btn btn-primary' onClick={() => {goCart()}} >장바구니에 담기</button>
+          </div>
         </div>
       </div>
       <div className='intro'>

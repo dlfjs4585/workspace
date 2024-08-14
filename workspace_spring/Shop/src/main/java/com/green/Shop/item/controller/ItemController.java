@@ -29,9 +29,9 @@ public class ItemController {
         itemService.insertCart(cartVO);
     }
 
-    @GetMapping("/getCartList")
-    public List<CartVO> getCartList(){
-        return itemService.getCartList();
+    @GetMapping("/getCartList/{memId}")
+    public List<CartVO> getCartList(@PathVariable("memId") String memId){
+        return itemService.getCartList(memId);
     }
 
 }
