@@ -34,4 +34,14 @@ public class ItemController {
         return itemService.getCartList(memId);
     }
 
+    @DeleteMapping("/deleteItem/{cartCode}")
+    public void deleteItem(@PathVariable("cartCode") int cartCode){
+        itemService.deleteItem(cartCode);
+    }
+
+    @PutMapping("/updateCartCnt")
+    public void updateCartCnt(@RequestBody CartVO cartVO){
+        itemService.updateCartCnt(cartVO);
+    }
+
 }

@@ -1,6 +1,6 @@
 import './App.css';
 import './reset.css'
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import UserLayout from './pages/user/UserLayout';
 import AdminLayout from './pages/admin/AdminLayout';
 import Join from './pages/user/Join';
@@ -27,6 +27,9 @@ function App() {
   // 새로고침하면 state변수의 값이 전부 초기화 된다.
   // 재랜더링하면 state변수의 값이 보존된다.
   const [loginInfo, setLoginInfo] = useState({});
+
+  const memId = loginInfo.memId;
+
 
   // 새로고침을 하더라도 sessionStorage에 로그인 정보는 존재하나,
   // 새로고침 할때 만약 로그인 정보가 sessionStorage에 남아있다면
@@ -74,6 +77,7 @@ function App() {
                 //상품 목록 페이지 이동
                 navigate('/')
               }}>L O G O U T</span>
+              <i class="bi bi-cart3" onClick={() => {navigate(`/cartList/${memId}`)}} ></i>
             </div>
           }
         </ul>

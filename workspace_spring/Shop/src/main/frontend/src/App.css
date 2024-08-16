@@ -55,7 +55,11 @@
 }
 
 .header-menu > div > span{
-  margin-left: 20px;
+  margin: 0px 20px;
+}
+
+.header-menu > div > .bi-cart3{
+  border: 1px solid red;
 }
 
 .menu-div{

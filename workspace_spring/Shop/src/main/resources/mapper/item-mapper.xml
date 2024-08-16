@@ -91,7 +91,7 @@
             , ITEM_NAME
             , ITEM_PRICE
             , CART_CNT
-            , CART_DATE
+            , DATE_FORMAT(CART_DATE, '%y-%m-%d %H:%i') AS CART_DATE
             , CART_CODE
             , I.ITEM_CODE
         FROM SHOP_CART C, SHOP_ITEM S, ITEM_IMG I
@@ -101,7 +101,18 @@
         AND MEM_ID = #{memId};
     </select>
 
-    <!--장바구니에서 수량 -->
+    <update id="updateCartCnt">
+        UPDATE SHOP_CART
+        SET CART_CNT = #{cartCnt}
+        WHERE CART_CODE = #{cartCode};
+    </update>
+
+    <!--장바구니 상품 삭제-->
+    <delete id="deleteItem">
+        DELETE FROM SHOP_CART
+        WHERE CART_CODE = #{CART_CODE};
+    </delete>
+
 
 </mapper>
 

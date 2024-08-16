@@ -32,4 +32,16 @@ public class ItemServiceImpl implements ItemService{
     public List<CartVO> getCartList(String memId) {
         return sqlSession.selectList("itemMapper.getCartList", memId);
     }
+
+    @Override
+    public void deleteItem(int cartCode) {
+        sqlSession.delete("itemMapper.deleteItem", cartCode);
+    }
+
+    @Override
+    public void updateCartCnt(CartVO cartVO) {
+        sqlSession.update("itemMapper.updateCartCnt", cartVO);
+    }
+
+
 }

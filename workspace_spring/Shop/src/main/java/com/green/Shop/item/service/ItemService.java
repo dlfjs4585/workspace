@@ -14,4 +14,8 @@ public interface ItemService {
     void insertCart(CartVO cartVO);
 
     List<CartVO> getCartList(String memId);
+
+    void deleteItem(int cartCode);
+
+    void updateCartCnt(CartVO cartVO);
 }
