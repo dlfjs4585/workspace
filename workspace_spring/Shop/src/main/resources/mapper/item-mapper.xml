@@ -72,17 +72,11 @@
         AND S.ITEM_CODE = #{itemCode};
     </select>
 
+    <!--select update 더 만들어주기-->
     <!--장바구니에 insert-->
     <insert id="insertCart" >
-        INSERT INTO SHOP_CART(
-            CART_CNT
-            , ITEM_CODE
-            , MEM_ID
-        ) VALUES(
-            #{cartCnt}
-            , #{itemCode}
-            , #{memId}
-        );
+        INSERT INTO SHOP_CART(CART_CNT, ITEM_CODE, MEM_ID)
+        VALUES(#{cartCnt}, #{itemCode}, #{memId});
     </insert>
 
     <!--장바구니 목록 불러오기-->

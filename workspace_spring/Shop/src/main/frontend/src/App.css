@@ -59,7 +59,7 @@
 }
 
 .header-menu > div > .bi-cart3{
-  border: 1px solid red;
+  cursor: pointer;
 }
 
 .menu-div{
