@@ -74,6 +74,7 @@ CREATE TABLE SHOP_CART (
 
 SELECT * FROM shop_cart;
 
+DELETE FROM shop_cart;
 
 SELECT * FROM shop_member;
 DELETE FROM SHOP_ITEM
@@ -134,14 +135,16 @@ DELETE FROM TEST_SHOP_ITEM;
 -- 데이터가 하나도 없다면 1을 조회
 SELECT IFNULL(MAX(ITEM_CODE), 0)+1 FROM TEST_SHOP_ITEM;
 
+-- 장바구니에 같은 상품이 있는지 확인하는 쿼리
+SELECT CART_CODE
+FROM shop_cart
+WHERE ITEM_CODE = #{itemCode}
+AND MEM_ID = #{memId}
 
-
-
-
-
-
-
-
-
-
+-- 장바구니에 같은 상품이 있다면, 업데이트 하는 쿼리
+UPDATE shop_cart
+SET CART_CNT += #{cartCnt}
+	, CART_DATE = NOW()	
+WHERE MEM_ID = #{memId}
+AND ITEM_CODE = #{itemCode}
 

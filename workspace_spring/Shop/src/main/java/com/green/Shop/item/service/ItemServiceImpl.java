@@ -23,9 +23,21 @@ public class ItemServiceImpl implements ItemService{
         return sqlSession.selectOne("itemMapper.getItemDetail", itemCode);
     }
 
+    // 장바구니 버튼 클릭시
     @Override
     public void insertCart(CartVO cartVO) {
-        sqlSession.insert("itemMapper.insertCart", cartVO);
+        // 내 장바구니에 상품 존재 여부확인
+        CartVO vo = sqlSession.selectOne("itemMapper.checkCart", cartVO);
+
+        // insert
+        if(vo == null){
+            sqlSession.insert("itemMapper.insertCart", cartVO);
+        }
+        // update
+        else{
+            // 장바구니에 같은 상품이 존재한다면 update
+            sqlSession.update("itemMapper.updateCartCntWhenReg", cartVO);
+        }
     }
 
     @Override

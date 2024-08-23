@@ -39,6 +39,7 @@
             , CAR_MONEY
         FROM CAR_INFO C, SALES_INFO S
         WHERE C.CAR_NUM = S.CAR_NUM
+        ORDER BY SALE_DATE DESC;
     </select>
 
 

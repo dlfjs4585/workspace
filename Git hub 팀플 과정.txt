@@ -45,7 +45,7 @@
 
 		※ Git은 내려받기를 먼저하고 올릴것 중요 ※
 6. 다른 팀원이 먼조 올린 파일이 있다면, 내려받고 다음 작업을 하는걸 추천. (계속 최신화 한다고 생각)
-	git pull origin main
+	git checkout main -> git pull origin main
 		※ 위의 명령어 실행 시 이상한 화면으로 이동 => :exit 엔터
 
 7. 본인의 브랜치에서 작업한 내용을 main 브랜치로 병합
