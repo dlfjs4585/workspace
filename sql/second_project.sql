@@ -8,18 +8,34 @@ CREATE TABLE HOSPITAL_MEMBER(
   , MEM_ROLE VARCHAR(30) DEFAULT 'USER' -- 기본적으로 가입하면 user
   , latitude DOUBLE DEFAULT 0
   , longitude DOUBLE DEFAULT 0
+  , DEVICE_ID VARCHAR(100) 
 );
 
 SELECT * FROM hospital_member;
-DELETE FROM hospital_member;
+DELETE FROM hospital_member
+WHERE MEM_NUM = 4;
 DROP TABLE hospital_member;
 
+INSERT INTO hospital_member(EMAIL, MEM_PW, MEM_NAME, MEM_TEL, MEM_ROLE)
+VALUES('admin1', 'admin1', '관리자', '01012341234', 'ADMIN');
+
 UPDATE hospital_member
-SET LATITUDE = 20.542117,
-LONGITUDE = 60.338326
-WHERE MEM_NUM = 3;
-
-
-
+SET LATITUDE = 35.54195015830728,
+LONGITUDE = 129.3380802109104
+WHERE MEM_NUM = 2;
 
 SELECT * FROM location;
+
+UPDATE hospital_member
+SET
+DEVICE_ID = 'asdaaddsdasd'
+WHERE MEM_NUM = 8;
+
+
+ SELECT MEM_NUM,
+        EMAIL,
+        MEM_NAME,
+        MEM_TEL,
+        latitude,
+        longitude
+        FROM hospital_member;
