@@ -92,3 +92,4 @@ SELECT ROUND(AVG(IFNULL(COMM, 0)), 1) AS AVG FROM emp;
 	
 	
 	
+study_dbstudy_dbstudy_db

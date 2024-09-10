@@ -43,7 +43,7 @@ const SalesInfoList = () => {
             carList.map((car, i) => {
               return(
                 <tr key={i}>
-                  <td>{car.saleNum}</td>
+                  <td>{i+1}</td>
                   <td>{car.buyerName}</td>
                   <td>{car.buyerTel}</td>
                   <td>{car.saleDate}</td>
